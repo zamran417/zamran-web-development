@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zamran Web Development | Websites for Businesses</title>
+
+<title>Zamran Web Development</title>
 
 <style>
 *{
@@ -13,52 +14,82 @@
   font-family:Arial,sans-serif;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  background:#f5f7fa;
-  color:#17202a;
-  line-height:1.6;
+  background:#f5f7fb;
+  color:#172033;
+  transition:.3s;
+}
+
+body.dark{
+  background:#0b1120;
+  color:#f8fafc;
 }
 
 header{
+  position:sticky;
+  top:0;
+  z-index:999;
   background:#111827;
   color:white;
-  padding:18px 7%;
+  padding:15px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:sticky;
-  top:0;
-  z-index:100;
+  gap:20px;
 }
 
 .logo{
-  font-size:24px;
+  font-size:22px;
   font-weight:bold;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
 
 nav a{
   color:white;
   text-decoration:none;
-  margin-left:20px;
+  font-size:14px;
+}
+
+button{
+  cursor:pointer;
+  border:none;
+}
+
+.langBtn,
+.darkBtn{
+  background:#2563eb;
+  color:white;
+  padding:9px 12px;
+  border-radius:8px;
 }
 
 .hero{
-  min-height:85vh;
+  min-height:88vh;
+  padding:70px 6%;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:50px 20px;
-  background:linear-gradient(135deg,#111827,#2563eb);
   color:white;
+  background:
+  linear-gradient(135deg,#111827,#1d4ed8);
 }
 
-.hero-content{
-  max-width:850px;
+.heroContent{
+  max-width:900px;
 }
 
 .hero h1{
-  font-size:48px;
+  font-size:52px;
   margin-bottom:20px;
 }
 
@@ -69,53 +100,66 @@ nav a{
 
 .btn{
   display:inline-block;
-  padding:14px 25px;
-  margin:7px;
+  padding:14px 24px;
   border-radius:10px;
   text-decoration:none;
   font-weight:bold;
+  margin:5px;
 }
 
-.whatsapp{
+.primary{
   background:#25D366;
   color:white;
 }
 
-.services-btn{
+.secondary{
   background:white;
   color:#111827;
 }
 
 section{
-  padding:70px 7%;
+  padding:75px 6%;
 }
 
 .title{
   text-align:center;
-  font-size:34px;
+  font-size:35px;
   margin-bottom:40px;
+}
+
+body.dark .card,
+body.dark .formBox{
+  background:#172033;
+  color:white;
 }
 
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
 }
 
 .card{
   background:white;
   padding:28px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border-radius:16px;
   text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transition:.3s;
 }
 
-.card h3{
-  margin:15px 0 10px;
+.card:hover{
+  transform:translateY(-5px);
 }
 
 .icon{
   font-size:45px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  margin-bottom:10px;
 }
 
 .countries{
@@ -125,58 +169,145 @@ section{
 
 .country{
   background:#1f2937;
-  padding:25px;
-  border-radius:15px;
+  padding:30px;
+  border-radius:16px;
   text-align:center;
   font-size:22px;
 }
 
-.pricing{
-  border:2px solid #2563eb;
+.portfolio{
+  background:#eef2ff;
+}
+
+body.dark .portfolio{
+  background:#111827;
+}
+
+.project{
+  overflow:hidden;
+}
+
+.projectTop{
+  font-size:60px;
+  padding:30px;
+  background:#e0e7ff;
+}
+
+body.dark .projectTop{
+  background:#25304a;
+}
+
+.projectContent{
+  padding:22px;
 }
 
 .price{
-  font-size:30px;
-  font-weight:bold;
   color:#2563eb;
-  margin:15px;
+  font-size:27px;
+  font-weight:bold;
+  margin:15px 0;
 }
 
-.contact{
-  text-align:center;
+.formSection{
   background:#2563eb;
   color:white;
 }
 
-.contact p{
-  font-size:18px;
-  margin:10px 0;
+.formBox{
+  max-width:750px;
+  margin:auto;
+  background:white;
+  color:#172033;
+  padding:30px;
+  border-radius:18px;
+}
+
+.formBox input,
+.formBox select,
+.formBox textarea{
+  width:100%;
+  padding:14px;
+  margin:8px 0 15px;
+  border:1px solid #d1d5db;
+  border-radius:9px;
+  font-size:16px;
+}
+
+.formBox textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+.submit{
+  width:100%;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:10px;
+  font-size:17px;
+  font-weight:bold;
+}
+
+.contact{
+  text-align:center;
 }
 
 footer{
   background:#111827;
   color:white;
   text-align:center;
-  padding:25px;
+  padding:30px 15px;
 }
 
-@media(max-width:700px){
+.floatWhatsApp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:28px;
+  box-shadow:0 5px 20px rgba(0,0,0,.3);
+  z-index:1000;
+}
+
+[dir="rtl"]{
+  text-align:right;
+}
+
+[dir="rtl"] .hero,
+[dir="rtl"] .title,
+[dir="rtl"] .contact{
+  text-align:center;
+}
+
+@media(max-width:750px){
+
   header{
     flex-direction:column;
-    gap:12px;
   }
 
-  nav a{
-    margin:5px;
-    font-size:14px;
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
   .hero h1{
-    font-size:35px;
+    font-size:36px;
   }
 
   .hero p{
     font-size:17px;
+  }
+
+  .title{
+    font-size:29px;
   }
 }
 </style>
@@ -185,197 +316,511 @@ footer{
 <body>
 
 <header>
-  <div class="logo">Zamran Web Development</div>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#countries">Countries</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<div class="logo">
+Zamran Web Development
+</div>
+
+<nav>
+
+<a href="#services" data-en="Services" data-ar="الخدمات">
+Services
+</a>
+
+<a href="#portfolio" data-en="Portfolio" data-ar="الأعمال">
+Portfolio
+</a>
+
+<a href="#order" data-en="Order" data-ar="طلب موقع">
+Order
+</a>
+
+<a href="#contact" data-en="Contact" data-ar="اتصل بنا">
+Contact
+</a>
+
+<button class="langBtn" onclick="changeLanguage()">
+العربية
+</button>
+
+<button class="darkBtn" onclick="toggleDark()">
+🌙
+</button>
+
+</nav>
+
 </header>
+
+
+<!-- HERO -->
 
 <section class="hero">
 
-  <div class="hero-content">
+<div class="heroContent">
 
-    <h1>Professional Websites for Modern Businesses</h1>
+<h1
+data-en="Professional Websites for Modern Businesses"
+data-ar="مواقع احترافية للشركات والأعمال الحديثة">
+Professional Websites for Modern Businesses
+</h1>
 
-    <p>
-      I create fast, modern and mobile-friendly websites
-      for restaurants, hotels, shops, companies and businesses.
-    </p>
+<p
+data-en="I create modern, fast and mobile-friendly websites for businesses in Saudi Arabia, UAE and worldwide."
+data-ar="أقوم بإنشاء مواقع حديثة وسريعة ومتوافقة مع الهواتف للشركات في السعودية والإمارات وجميع أنحاء العالم.">
+I create modern, fast and mobile-friendly websites for businesses in Saudi Arabia, UAE and worldwide.
+</p>
 
-    <a class="btn whatsapp"
-       href="https://wa.me/923313247153?text=Hello%20Zamran,%20I%20need%20a%20professional%20website."
-       target="_blank">
-       💬 Contact on WhatsApp
-    </a>
+<a
+class="btn primary"
+href="https://wa.me/923313247153"
+target="_blank">
+💬 WhatsApp
+</a>
 
-    <a class="btn services-btn" href="#services">
-      View Services
-    </a>
+<a
+class="btn secondary"
+href="#order"
+data-en="Order a Website"
+data-ar="اطلب موقعاً">
+Order a Website
+</a>
 
-  </div>
+</div>
 
 </section>
 
+
+<!-- SERVICES -->
 
 <section id="services">
 
-<h2 class="title">My Services</h2>
+<h2 class="title"
+data-en="Our Services"
+data-ar="خدماتنا">
+Our Services
+</h2>
 
 <div class="cards">
 
-  <div class="card">
-    <div class="icon">🌐</div>
-    <h3>Business Website</h3>
-    <p>Professional websites for companies and businesses.</p>
-  </div>
+<div class="card">
 
-  <div class="card">
-    <div class="icon">🍔</div>
-    <h3>Restaurant Website</h3>
-    <p>Modern restaurant websites with menu and contact options.</p>
-  </div>
+<div class="icon">🌐</div>
 
-  <div class="card">
-    <div class="icon">🏨</div>
-    <h3>Hotel Website</h3>
-    <p>Beautiful websites for hotels and accommodation businesses.</p>
-  </div>
+<h3
+data-en="Business Website"
+data-ar="موقع شركة">
+Business Website
+</h3>
 
-  <div class="card">
-    <div class="icon">🛍️</div>
-    <h3>Shop Website</h3>
-    <p>Mobile-friendly websites for shops and stores.</p>
-  </div>
+<p
+data-en="Professional websites for companies and businesses."
+data-ar="مواقع احترافية للشركات والأعمال.">
+Professional websites for companies and businesses.
+</p>
 
-  <div class="card">
-    <div class="icon">🏠</div>
-    <h3>Real Estate</h3>
-    <p>Property websites for real estate businesses.</p>
-  </div>
+</div>
 
-  <div class="card">
-    <div class="icon">🚗</div>
-    <h3>Car Rental</h3>
-    <p>Professional websites for car rental companies.</p>
-  </div>
+
+<div class="card">
+
+<div class="icon">🍔</div>
+
+<h3
+data-en="Restaurant Website"
+data-ar="موقع مطعم">
+Restaurant Website
+</h3>
+
+<p
+data-en="Modern restaurant websites with menus and WhatsApp."
+data-ar="مواقع مطاعم حديثة مع القائمة وواتساب.">
+Modern restaurant websites with menus and WhatsApp.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🏨</div>
+
+<h3
+data-en="Hotel Website"
+data-ar="موقع فندق">
+Hotel Website
+</h3>
+
+<p
+data-en="Beautiful websites for hotels and accommodation."
+data-ar="مواقع جميلة للفنادق وأماكن الإقامة.">
+Beautiful websites for hotels and accommodation.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🛍️</div>
+
+<h3
+data-en="Shop Website"
+data-ar="موقع متجر">
+Shop Website
+</h3>
+
+<p
+data-en="Mobile-friendly websites for stores and shops."
+data-ar="مواقع متوافقة مع الهاتف للمتاجر والمحلات.">
+Mobile-friendly websites for stores and shops.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🏠</div>
+
+<h3
+data-en="Real Estate"
+data-ar="العقارات">
+Real Estate
+</h3>
+
+<p
+data-en="Websites for property and real estate businesses."
+data-ar="مواقع لشركات العقارات والممتلكات.">
+Websites for property and real estate businesses.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🚗</div>
+
+<h3
+data-en="Car Rental"
+data-ar="تأجير السيارات">
+Car Rental
+</h3>
+
+<p
+data-en="Professional websites for car rental companies."
+data-ar="مواقع احترافية لشركات تأجير السيارات.">
+Professional websites for car rental companies.
+</p>
+
+</div>
 
 </div>
 
 </section>
 
 
-<section id="countries" class="countries">
+<!-- COUNTRIES -->
 
-<h2 class="title">I Work With Businesses Worldwide</h2>
+<section class="countries">
+
+<h2 class="title"
+data-en="Target Markets"
+data-ar="الأسواق المستهدفة">
+Target Markets
+</h2>
 
 <div class="cards">
 
-  <div class="country">
-    🇸🇦<br>
-    Saudi Arabia
-  </div>
+<div class="country">
+🇸🇦<br>
+Saudi Arabia
+</div>
 
-  <div class="country">
-    🇦🇪<br>
-    United Arab Emirates
-  </div>
+<div class="country">
+🇦🇪<br>
+United Arab Emirates
+</div>
 
-  <div class="country">
-    🌍<br>
-    Worldwide
-  </div>
+<div class="country">
+🌍<br>
+Worldwide
+</div>
 
 </div>
 
 </section>
 
 
-<section id="pricing">
+<!-- PORTFOLIO -->
 
-<h2 class="title">Website Packages</h2>
+<section id="portfolio" class="portfolio">
+
+<h2 class="title"
+data-en="Portfolio"
+data-ar="أعمالنا">
+Portfolio
+</h2>
 
 <div class="cards">
 
-  <div class="card pricing">
 
-    <h3>Starter Website</h3>
+<div class="card project">
 
-    <div class="price">Custom Quote</div>
+<div class="projectTop">
+🍣
+</div>
 
-    <p>✔ Mobile Friendly</p>
-    <p>✔ Professional Design</p>
-    <p>✔ Contact Section</p>
-    <p>✔ WhatsApp Button</p>
+<div class="projectContent">
 
-    <a class="btn whatsapp"
-       href="https://wa.me/923313247153?text=Hello%20Zamran,%20I%20want%20a%20Starter%20Website."
-       target="_blank">
-       Order Now
-    </a>
+<h3>
+Restaurant Website
+</h3>
 
-  </div>
+<p>
+Modern restaurant website with menu,
+contact and WhatsApp.
+</p>
 
+<a
+class="btn primary"
+href="https://zamran417.github.io/zamran-web-development/"
+target="_blank">
+View Website
+</a>
 
-  <div class="card pricing">
+</div>
 
-    <h3>Business Website</h3>
-
-    <div class="price">Custom Quote</div>
-
-    <p>✔ Multiple Pages</p>
-    <p>✔ Modern Design</p>
-    <p>✔ WhatsApp Integration</p>
-    <p>✔ Responsive Design</p>
-
-    <a class="btn whatsapp"
-       href="https://wa.me/923313247153?text=Hello%20Zamran,%20I%20want%20a%20Business%20Website."
-       target="_blank">
-       Order Now
-    </a>
-
-  </div>
+</div>
 
 
-  <div class="card pricing">
+<div class="card project">
 
-    <h3>Web App</h3>
+<div class="projectTop">
+🏨
+</div>
 
-    <div class="price">Custom Quote</div>
+<div class="projectContent">
 
-    <p>✔ Custom Features</p>
-    <p>✔ Mobile Friendly</p>
-    <p>✔ Modern UI</p>
-    <p>✔ Business Functions</p>
+<h3>
+Hotel Website
+</h3>
 
-    <a class="btn whatsapp"
-       href="https://wa.me/923313247153?text=Hello%20Zamran,%20I%20need%20a%20Web%20App."
-       target="_blank">
-       Discuss Project
-    </a>
+<p>
+Modern hotel business website concept.
+</p>
 
-  </div>
+<a
+class="btn primary"
+href="#order">
+Build Similar
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card project">
+
+<div class="projectTop">
+🏢
+</div>
+
+<div class="projectContent">
+
+<h3>
+Business Website
+</h3>
+
+<p>
+Professional company website concept.
+</p>
+
+<a
+class="btn primary"
+href="#order">
+Build Similar
+</a>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
+
+<!-- ORDER FORM -->
+
+<section id="order" class="formSection">
+
+<h2 class="title"
+data-en="Order Your Website"
+data-ar="اطلب موقعك الإلكتروني">
+Order Your Website
+</h2>
+
+<div class="formBox">
+
+<form id="orderForm">
+
+<label>
+Company / Business Name
+</label>
+
+<input
+id="company"
+type="text"
+placeholder="Example: Sugi Sushi"
+required>
+
+
+<label>
+Country
+</label>
+
+<select id="country" required>
+
+<option value="">
+Select Country
+</option>
+
+<option>Saudi Arabia 🇸🇦</option>
+
+<option>United Arab Emirates 🇦🇪</option>
+
+<option>Pakistan 🇵🇰</option>
+
+<option>Other 🌍</option>
+
+</select>
+
+
+<label>
+Business Type
+</label>
+
+<select id="business" required>
+
+<option value="">
+Select Business
+</option>
+
+<option>Restaurant</option>
+
+<option>Hotel</option>
+
+<option>Shop</option>
+
+<option>Real Estate</option>
+
+<option>Car Rental</option>
+
+<option>Company</option>
+
+<option>Other</option>
+
+</select>
+
+
+<label>
+Website Service
+</label>
+
+<select id="service" required>
+
+<option value="">
+Select Service
+</option>
+
+<option>Business Website</option>
+
+<option>Restaurant Website</option>
+
+<option>Hotel Website</option>
+
+<option>Shop Website</option>
+
+<option>Real Estate Website</option>
+
+<option>Web App</option>
+
+<option>Custom Project</option>
+
+</select>
+
+
+<label>
+Budget
+</label>
+
+<select id="budget">
+
+<option>Not decided</option>
+
+<option>$50 - $100</option>
+
+<option>$100 - $250</option>
+
+<option>$250 - $500</option>
+
+<option>$500+</option>
+
+</select>
+
+
+<label>
+Project Details
+</label>
+
+<textarea
+id="details"
+placeholder="Tell me what website you need...">
+</textarea>
+
+
+<button class="submit" type="submit">
+
+💬 Send Project Request on WhatsApp
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
-<h2 class="title">Let's Build Your Website</h2>
+<h2 class="title"
+data-en="Let's Work Together"
+data-ar="لنعمل معاً">
+Let's Work Together
+</h2>
 
-<p>Have a business in Saudi Arabia, UAE or anywhere in the world?</p>
+<p
+data-en="Have a business in Saudi Arabia, UAE or anywhere in the world?"
+data-ar="هل لديك شركة في السعودية أو الإمارات أو أي مكان في العالم؟">
+Have a business in Saudi Arabia, UAE or anywhere in the world?
+</p>
 
-<p>Contact Zamran Web Development today.</p>
+<p>
+<strong>Zamran Web Development</strong>
+</p>
 
-<a class="btn whatsapp"
-   href="https://wa.me/923313247153?text=Hello%20Zamran,%20I%20want%20to%20discuss%20a%20website%20project."
-   target="_blank">
-   💬 WhatsApp Me
+<br>
+
+<a
+class="btn primary"
+href="https://wa.me/923313247153"
+target="_blank">
+💬 +92 331 3247153
 </a>
 
 </section>
@@ -383,11 +828,130 @@ footer{
 
 <footer>
 
-<p>© 2026 Zamran Web Development</p>
+<p>
+© 2026 Zamran Web Development
+</p>
 
-<p>Professional Websites • Web Apps • Business Solutions</p>
+<p>
+Websites • Web Apps • Business Solutions
+</p>
 
 </footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+class="floatWhatsApp"
+href="https://wa.me/923313247153"
+target="_blank">
+💬
+</a>
+
+
+<script>
+
+let arabic = false;
+
+
+/* LANGUAGE */
+
+function changeLanguage(){
+
+arabic = !arabic;
+
+document.documentElement.lang =
+arabic ? "ar" : "en";
+
+document.documentElement.dir =
+arabic ? "rtl" : "ltr";
+
+document.querySelector(".langBtn").textContent =
+arabic ? "English" : "العربية";
+
+document.querySelectorAll("[data-en]").forEach(el => {
+
+el.textContent =
+arabic
+? el.getAttribute("data-ar")
+: el.getAttribute("data-en");
+
+});
+
+}
+
+
+/* DARK MODE */
+
+function toggleDark(){
+
+document.body.classList.toggle("dark");
+
+}
+
+
+/* WHATSAPP ORDER */
+
+document.getElementById("orderForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const company =
+document.getElementById("company").value;
+
+const country =
+document.getElementById("country").value;
+
+const business =
+document.getElementById("business").value;
+
+const service =
+document.getElementById("service").value;
+
+const budget =
+document.getElementById("budget").value;
+
+const details =
+document.getElementById("details").value;
+
+
+const message =
+
+`Hello Zamran 👋
+
+I want a website.
+
+Company: ${company}
+
+Country: ${country}
+
+Business Type: ${business}
+
+Service: ${service}
+
+Budget: ${budget}
+
+Project Details:
+${details}
+
+Thank you.`;
+
+
+const whatsappURL =
+"https://wa.me/923313247153?text="
++
+encodeURIComponent(message);
+
+
+window.open(
+whatsappURL,
+"_blank"
+);
+
+});
+
+</script>
 
 </body>
 </html>
