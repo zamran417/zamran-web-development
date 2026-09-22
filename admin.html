@@ -1,1 +1,681 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zamran Admin Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f3f4f6;
+  color:#111827;
+}
+
+header{
+  background:#111827;
+  color:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h1{
+  font-size:22px;
+}
+
+button{
+  border:0;
+  border-radius:8px;
+  padding:10px 15px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.logout{
+  background:#ef4444;
+  color:white;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:30px 15px;
+}
+
+.login{
+  max-width:420px;
+  margin:80px auto;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 5px 25px rgba(0,0,0,.1);
+}
+
+.login h2{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+input,select{
+  width:100%;
+  padding:13px;
+  margin:7px 0 15px;
+  border:1px solid #d1d5db;
+  border-radius:8px;
+}
+
+.loginBtn{
+  width:100%;
+  background:#2563eb;
+  color:white;
+}
+
+.error{
+  color:#dc2626;
+  margin-top:10px;
+  text-align:center;
+}
+
+#dashboard{
+  display:none;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.stat h3{
+  font-size:28px;
+  margin-bottom:5px;
+}
+
+.orders{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.order{
+  padding:20px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.order:last-child{
+  border-bottom:0;
+}
+
+.orderTop{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.company{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.badge{
+  padding:6px 10px;
+  border-radius:20px;
+  background:#e5e7eb;
+  font-size:13px;
+}
+
+.order p{
+  margin-top:7px;
+}
+
+.actions{
+  margin-top:15px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.save{
+  background:#2563eb;
+  color:white;
+}
+
+.delete{
+  background:#ef4444;
+  color:white;
+}
+
+.refresh{
+  background:#111827;
+  color:white;
+  margin-bottom:20px;
+}
+
+.noOrders{
+  padding:30px;
+  text-align:center;
+}
+
+@media(max-width:600px){
+  header{
+    gap:10px;
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🔐 Zamran Admin</h1>
+
+<button
+class="logout"
+id="logoutBtn"
+style="display:none">
+Logout
+</button>
+
+</header>
+
+
+<!-- LOGIN -->
+
+<div id="loginBox" class="login">
+
+<h2>Admin Login</h2>
+
+<form id="loginForm">
+
+<label>Email</label>
+
+<input
+id="email"
+type="email"
+placeholder="Admin email"
+required>
+
+<label>Password</label>
+
+<input
+id="password"
+type="password"
+placeholder="Password"
+required>
+
+<button
+class="loginBtn"
+type="submit">
+Login
+</button>
+
+<p id="loginError" class="error"></p>
+
+</form>
+
+</div>
+
+
+<!-- DASHBOARD -->
+
+<div id="dashboard">
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<h3 id="total">0</h3>
+<p>Total Orders</p>
+</div>
+
+<div class="stat">
+<h3 id="saudi">0</h3>
+<p>🇸🇦 Saudi</p>
+</div>
+
+<div class="stat">
+<h3 id="uae">0</h3>
+<p>🇦🇪 UAE</p>
+</div>
+
+<div class="stat">
+<h3 id="newOrders">0</h3>
+<p>🟢 New</p>
+</div>
+
+<div class="stat">
+<h3 id="completed">0</h3>
+<p>✅ Completed</p>
+</div>
+
+</div>
+
+
+<button
+class="refresh"
+onclick="loadOrders()">
+🔄 Refresh Orders
+</button>
+
+
+<div class="orders" id="orders">
+
+<div class="noOrders">
+Loading...
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================================
+   SUPABASE CONFIG
+================================ */
+
+
+const SUPABASE_KEY =
+"YOUR_PUBLISHABLE_OR_ANON_KEY";
+const SUPABASE_KEY =
+"YOUR_PUBLISHABLE_OR_ANON_KEY";
+
+const db =
+supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+
+/* ================================
+   LOGIN
+================================ */
+
+document
+.getElementById("loginForm")
+.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+const {data,error} =
+await db.auth.signInWithPassword({
+  email:email,
+  password:password
+});
+
+if(error){
+
+document.getElementById("loginError")
+.textContent =
+"Login failed: " + error.message;
+
+return;
+
+}
+
+showDashboard();
+
+});
+
+
+/* ================================
+   CHECK EXISTING SESSION
+================================ */
+
+async function checkSession(){
+
+const {data} =
+await db.auth.getSession();
+
+if(data.session){
+
+showDashboard();
+
+}
+
+}
+
+
+/* ================================
+   SHOW DASHBOARD
+================================ */
+
+function showDashboard(){
+
+document.getElementById("loginBox")
+.style.display="none";
+
+document.getElementById("dashboard")
+.style.display="block";
+
+document.getElementById("logoutBtn")
+.style.display="block";
+
+loadOrders();
+
+}
+
+
+/* ================================
+   LOGOUT
+================================ */
+
+document
+.getElementById("logoutBtn")
+.addEventListener("click", async function(){
+
+await db.auth.signOut();
+
+location.reload();
+
+});
+
+
+/* ================================
+   LOAD ORDERS
+================================ */
+
+async function loadOrders(){
+
+const {data,error} =
+await db
+.from("client_orders")
+.select("*")
+.order("created_at",{ascending:false});
+
+
+if(error){
+
+document.getElementById("orders")
+.innerHTML =
+"<div class='noOrders'>Error loading orders.</div>";
+
+console.error(error);
+
+return;
+
+}
+
+
+updateStats(data);
+
+displayOrders(data);
+
+}
+
+
+/* ================================
+   STATS
+================================ */
+
+function updateStats(data){
+
+document.getElementById("total")
+.textContent=data.length;
+
+document.getElementById("saudi")
+.textContent=
+data.filter(x =>
+x.country.includes("Saudi")
+).length;
+
+document.getElementById("uae")
+.textContent=
+data.filter(x =>
+x.country.includes("United Arab")
+).length;
+
+document.getElementById("newOrders")
+.textContent=
+data.filter(x =>
+x.status==="New"
+).length;
+
+document.getElementById("completed")
+.textContent=
+data.filter(x =>
+x.status==="Completed"
+).length;
+
+}
+
+
+/* ================================
+   DISPLAY ORDERS
+================================ */
+
+function displayOrders(data){
+
+const box =
+document.getElementById("orders");
+
+if(!data.length){
+
+box.innerHTML =
+"<div class='noOrders'>No client orders yet.</div>";
+
+return;
+
+}
+
+box.innerHTML="";
+
+data.forEach(order => {
+
+const item =
+document.createElement("div");
+
+item.className="order";
+
+item.innerHTML=`
+
+<div class="orderTop">
+
+<div class="company">
+${escapeHTML(order.company_name)}
+</div>
+
+<div class="badge">
+${escapeHTML(order.status || "New")}
+</div>
+
+</div>
+
+<p>
+🌍 <strong>Country:</strong>
+${escapeHTML(order.country)}
+</p>
+
+<p>
+🏢 <strong>Business:</strong>
+${escapeHTML(order.business_type)}
+</p>
+
+<p>
+💻 <strong>Service:</strong>
+${escapeHTML(order.service)}
+</p>
+
+<p>
+💰 <strong>Budget:</strong>
+${escapeHTML(order.budget || "Not decided")}
+</p>
+
+<p>
+📝 <strong>Details:</strong>
+${escapeHTML(order.project_details || "No details")}
+</p>
+
+<p>
+🕐 <strong>Date:</strong>
+${new Date(order.created_at).toLocaleString()}
+</p>
+
+<div class="actions">
+
+<select id="status-${order.id}">
+
+<option ${order.status==="New"?"selected":""}>
+New
+</option>
+
+<option ${order.status==="In Progress"?"selected":""}>
+In Progress
+</option>
+
+<option ${order.status==="Completed"?"selected":""}>
+Completed
+</option>
+
+</select>
+
+<button
+class="save"
+onclick="updateStatus(${order.id})">
+Save Status
+</button>
+
+<button
+class="delete"
+onclick="deleteOrder(${order.id})">
+Delete
+</button>
+
+</div>
+
+`;
+
+box.appendChild(item);
+
+});
+
+}
+
+
+/* ================================
+   UPDATE STATUS
+================================ */
+
+async function updateStatus(id){
+
+const status =
+document.getElementById(
+"status-"+id
+).value;
+
+const {error} =
+await db
+.from("client_orders")
+.update({status:status})
+.eq("id",id);
+
+if(error){
+
+alert("Could not update status.");
+
+return;
+
+}
+
+alert("✅ Status updated.");
+
+loadOrders();
+
+}
+
+
+/* ================================
+   DELETE ORDER
+================================ */
+
+async function deleteOrder(id){
+
+const confirmDelete =
+confirm(
+"Delete this client order?"
+);
+
+if(!confirmDelete)return;
+
+const {error} =
+await db
+.from("client_orders")
+.delete()
+.eq("id",id);
+
+if(error){
+
+alert("Could not delete order.");
+
+return;
+
+}
+
+loadOrders();
+
+}
+
+
+/* ================================
+   SECURITY
+================================ */
+
+function escapeHTML(value){
+
+if(value===null ||
+value===undefined){
+return "";
+}
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+checkSession();
+
+</script>
+
+</body>
+</html>
