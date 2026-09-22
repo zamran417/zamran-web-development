@@ -1,1 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zamran Car Rental</title>
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+color:#111827;
+line-height:1.6;
+transition:.3s;
+}
+
+body.dark{
+background:#0f172a;
+color:#f8fafc;
+}
+
+header{
+background:linear-gradient(135deg,#111827,#2563eb);
+color:white;
+padding:70px 20px;
+text-align:center;
+}
+
+header h1{font-size:40px;margin-bottom:10px}
+header p{font-size:18px}
+
+.nav{
+position:sticky;
+top:0;
+z-index:10;
+background:white;
+padding:12px;
+display:flex;
+justify-content:center;
+gap:8px;
+flex-wrap:wrap;
+box-shadow:0 2px 10px #ddd;
+}
+
+.dark .nav{
+background:#1e293b;
+box-shadow:none;
+}
+
+button,.btn{
+border:0;
+padding:11px 16px;
+border-radius:9px;
+cursor:pointer;
+font-weight:bold;
+text-decoration:none;
+display:inline-block;
+}
+
+.lang{
+background:#2563eb;
+color:white;
+}
+
+.mode{
+background:#111827;
+color:white;
+}
+
+section{
+padding:50px 15px;
+text-align:center;
+}
+
+section h2{
+font-size:30px;
+margin-bottom:12px;
+}
+
+.subtitle{
+color:#64748b;
+margin-bottom:30px;
+}
+
+.dark .subtitle{
+color:#cbd5e1;
+}
+
+.grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:22px;
+}
+
+.card{
+background:white;
+padding:25px 20px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+transition:.25s;
+}
+
+.dark .card{
+background:#1e293b;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.car-icon{
+font-size:65px;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:8px;
+}
+
+.price{
+font-size:25px;
+font-weight:bold;
+color:#2563eb;
+margin:12px;
+}
+
+.dark .price{
+color:#60a5fa;
+}
+
+.rent{
+background:#2563eb;
+color:white;
+margin-top:12px;
+}
+
+.booking{
+max-width:700px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.dark .booking{
+background:#1e293b;
+}
+
+input,select,textarea{
+width:100%;
+padding:14px;
+margin:8px 0 15px;
+border:1px solid #cbd5e1;
+border-radius:10px;
+font-size:16px;
+}
+
+textarea{
+min-height:110px;
+resize:vertical;
+}
+
+.submit{
+width:100%;
+background:#25D366;
+color:white;
+font-size:18px;
+padding:15px;
+}
+
+.contact{
+background:#eaf2ff;
+}
+
+.dark .contact{
+background:#172554;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+font-size:18px;
+padding:15px 25px;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:30px 15px;
+}
+
+@media(max-width:600px){
+header h1{font-size:30px}
+section h2{font-size:25px}
+.card{padding:22px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🚗 Zamran Car Rental</h1>
+<p id="heroText">Drive Your Journey With Comfort & Confidence</p>
+</header>
+
+<div class="nav">
+<button class="lang" onclick="setLanguage('en')">English</button>
+<button class="lang" onclick="setLanguage('ur')">اردو</button>
+<button class="lang" onclick="setLanguage('ps')">پښتو</button>
+<button class="lang" onclick="setLanguage('ar')">العربية</button>
+<button class="mode" onclick="darkMode()">🌙</button>
+</div>
+
+<section>
+
+<h2 id="carsTitle">🚘 Our Vehicles</h2>
+<p class="subtitle" id="carsSub">
+Choose the right vehicle for your journey.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="car-icon">🚘</div>
+<h3>Economy Sedan</h3>
+<p>Comfortable car for city trips and daily travel.</p>
+<div class="price">Rs. 5,000 / Day</div>
+<a class="btn rent" href="#booking">Rent Now</a>
+</div>
+
+<div class="card">
+<div class="car-icon">🚙</div>
+<h3>SUV</h3>
+<p>Spacious SUV for family trips and long journeys.</p>
+<div class="price">Rs. 8,000 / Day</div>
+<a class="btn rent" href="#booking">Rent Now</a>
+</div>
+
+<div class="card">
+<div class="car-icon">🏎️</div>
+<h3>Luxury Car</h3>
+<p>Premium vehicle for weddings, events and business.</p>
+<div class="price">Rs. 15,000 / Day</div>
+<a class="btn rent" href="#booking">Rent Now</a>
+</div>
+
+<div class="card">
+<div class="car-icon">🚐</div>
+<h3>7-Seater</h3>
+<p>Large and comfortable vehicle for family groups.</p>
+<div class="price">Rs. 10,000 / Day</div>
+<a class="btn rent" href="#booking">Rent Now</a>
+</div>
+
+</div>
+</section>
+
+<section>
+
+<h2 id="whyTitle">⭐ Why Choose Us?</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>✅ Clean Vehicles</h3>
+<p>Well-maintained and clean rental vehicles.</p>
+</div>
+
+<div class="card">
+<h3>💰 Fair Pricing</h3>
+<p>Simple and transparent rental prices.</p>
+</div>
+
+<div class="card">
+<h3>📞 Easy Booking</h3>
+<p>Book quickly through WhatsApp.</p>
+</div>
+
+<div class="card">
+<h3>🕐 Flexible Service</h3>
+<p>Rental options for different travel needs.</p>
+</div>
+
+</div>
+</section>
+
+<section id="booking">
+
+<h2 id="bookingTitle">📅 Book Your Car</h2>
+
+<p class="subtitle" id="bookingSub">
+Fill the form and send your booking request on WhatsApp.
+</p>
+
+<div class="booking">
+
+<form onsubmit="sendBooking(event)">
+
+<input id="name"
+type="text"
+placeholder="Your Name"
+required>
+
+<input id="date"
+type="date"
+required>
+
+<select id="car" required>
+<option value="">Select Vehicle</option>
+<option>Economy Sedan</option>
+<option>SUV</option>
+<option>Luxury Car</option>
+<option>7-Seater</option>
+</select>
+
+<textarea id="message"
+placeholder="Additional message"></textarea>
+
+<button class="submit" type="submit">
+💬 Send Booking on WhatsApp
+</button>
+
+</form>
+
+</div>
+</section>
+
+<section class="contact">
+
+<h2 id="contactTitle">📞 Contact Us</h2>
+
+<p class="subtitle">
+Ready to start your journey?
+</p>
+
+<a
+class="btn whatsapp"
+href="https://wa.me/923313247153?text=Hello%20Zamran%20Car%20Rental%2C%20I%20want%20to%20rent%20a%20car."
+target="_blank">
+💬 WhatsApp Us
+</a>
+
+</section>
+
+<footer>
+<h3>🚗 Zamran Car Rental</h3>
+<p>Professional Car Rental Website Demo</p>
+<p>© 2026 Zamran Web Development</p>
+</footer>
+
+<script>
+
+function darkMode(){
+document.body.classList.toggle("dark");
+}
+
+function sendBooking(event){
+
+event.preventDefault();
+
+let name=document.getElementById("name").value;
+let date=document.getElementById("date").value;
+let car=document.getElementById("car").value;
+let message=document.getElementById("message").value;
+
+let text=
+"Hello Zamran Car Rental!%0A%0A"+
+"Name: "+encodeURIComponent(name)+
+"%0ADate: "+encodeURIComponent(date)+
+"%0AVehicle: "+encodeURIComponent(car)+
+"%0AMessage: "+encodeURIComponent(message);
+
+window.open(
+"https://wa.me/923313247153?text="+text,
+"_blank"
+);
+}
+
+const translations={
+
+en:{
+hero:"Drive Your Journey With Comfort & Confidence",
+cars:"🚘 Our Vehicles",
+sub:"Choose the right vehicle for your journey.",
+why:"⭐ Why Choose Us?",
+booking:"📅 Book Your Car",
+bookingSub:"Fill the form and send your booking request on WhatsApp.",
+contact:"📞 Contact Us"
+},
+
+ur:{
+hero:"آرام اور اعتماد کے ساتھ اپنا سفر شروع کریں",
+cars:"🚘 ہماری گاڑیاں",
+sub:"اپنے سفر کے لیے مناسب گاڑی منتخب کریں۔",
+why:"⭐ ہمیں کیوں منتخب کریں؟",
+booking:"📅 گاڑی بک کریں",
+bookingSub:"فارم مکمل کریں اور WhatsApp پر بکنگ بھیجیں۔",
+contact:"📞 ہم سے رابطہ کریں"
+},
+
+ps:{
+hero:"خپل سفر په آرام او باور سره پیل کړئ",
+cars:"🚘 زموږ موټرونه",
+sub:"د خپل سفر لپاره مناسبه موټر وټاکئ.",
+why:"⭐ ولې موږ غوره کړئ؟",
+booking:"📅 خپل موټر بک کړئ",
+bookingSub:"فورمه ډکه کړئ او په WhatsApp کې د بکینګ غوښتنه واستوئ.",
+contact:"📞 له موږ سره اړیکه ونیسئ"
+},
+
+ar:{
+hero:"ابدأ رحلتك براحة وثقة",
+cars:"🚘 سياراتنا",
+sub:"اختر السيارة المناسبة لرحلتك.",
+why:"⭐ لماذا تختارنا؟",
+booking:"📅 احجز سيارتك",
+bookingSub:"املأ النموذج وأرسل طلب الحجز عبر واتساب.",
+contact:"📞 اتصل بنا"
+}
+
+};
+
+function setLanguage(lang){
+
+document.documentElement.lang=lang;
+
+document.getElementById("heroText").textContent=
+translations[lang].hero;
+
+document.getElementById("carsTitle").textContent=
+translations[lang].cars;
+
+document.getElementById("carsSub").textContent=
+translations[lang].sub;
+
+document.getElementById("whyTitle").textContent=
+translations[lang].why;
+
+document.getElementById("bookingTitle").textContent=
+translations[lang].booking;
+
+document.getElementById("bookingSub").textContent=
+translations[lang].bookingSub;
+
+document.getElementById("contactTitle").textContent=
+translations[lang].contact;
+
+if(lang==="ur" || lang==="ps" || lang==="ar"){
+document.body.style.direction="rtl";
+}else{
+document.body.style.direction="ltr";
+}
+
+}
+
+</script>
+
+</body>
+</html>
