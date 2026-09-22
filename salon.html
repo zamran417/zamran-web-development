@@ -1,1 +1,100 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Zamran Salon Demo</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#fff7fb;color:#222}
+header{background:linear-gradient(135deg,#7c2d5e,#ec4899);color:white;text-align:center;padding:60px 20px}
+header h1{font-size:36px}
+section{padding:35px 15px;text-align:center}
+.grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:white;padding:25px;border-radius:18px;box-shadow:0 5px 20px #ddd}
+.icon{font-size:45px}
+.price{font-size:22px;font-weight:bold;color:#be185d;margin:10px}
+.btn{display:inline-block;text-decoration:none;color:white;background:#be185d;padding:13px 20px;border-radius:9px;margin:6px}
+.whatsapp{background:#25D366}
+footer{background:#111827;color:white;text-align:center;padding:25px}
+.lang{padding:10px;border:0;border-radius:8px;background:#111827;color:white}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>💇 Glow Beauty Salon</h1>
+<p>Beauty • Hair • Style</p>
+<p>✨ Professional Salon Services</p>
+</header>
+
+<section>
+
+<select class="lang" onchange="language(this.value)">
+<option value="en">English</option>
+<option value="ur">اردو</option>
+<option value="ps">پښتو</option>
+<option value="ar">العربية</option>
+</select>
+
+<h2 id="title">Our Services</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">💇‍♀️</div>
+<h3>Hair Styling</h3>
+<p>Professional hair styling.</p>
+<div class="price">$20</div>
+</div>
+
+<div class="card">
+<div class="icon">💅</div>
+<h3>Manicure & Pedicure</h3>
+<p>Relaxing beauty treatment.</p>
+<div class="price">$15</div>
+</div>
+
+<div class="card">
+<div class="icon">💄</div>
+<h3>Makeup</h3>
+<p>Professional makeup service.</p>
+<div class="price">$30</div>
+</div>
+
+</div>
+
+<br>
+
+<a class="btn whatsapp"
+href="https://wa.me/923313247153?text=Hello%2C%20I%20want%20to%20book%20a%20salon%20service."
+target="_blank">
+💬 Book Appointment
+</a>
+
+</section>
+
+<footer>
+<p>🌐 Demo Website by Zamran Web Development</p>
+</footer>
+
+<script>
+
+function language(x){
+
+let title=document.getElementById("title");
+
+if(x==="ur") title.textContent="ہماری خدمات";
+if(x==="ps") title.textContent="زموږ خدمتونه";
+if(x==="ar") title.textContent="خدماتنا";
+if(x==="en") title.textContent="Our Services";
+
+}
+
+</script>
+
+</body>
+  </html>
