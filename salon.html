@@ -1,100 +1,306 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Zamran Salon Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Glow Beauty Salon | Demo</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#fff7fb;color:#222}
-header{background:linear-gradient(135deg,#7c2d5e,#ec4899);color:white;text-align:center;padding:60px 20px}
-header h1{font-size:36px}
-section{padding:35px 15px;text-align:center}
-.grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:white;padding:25px;border-radius:18px;box-shadow:0 5px 20px #ddd}
-.icon{font-size:45px}
-.price{font-size:22px;font-weight:bold;color:#be185d;margin:10px}
-.btn{display:inline-block;text-decoration:none;color:white;background:#be185d;padding:13px 20px;border-radius:9px;margin:6px}
-.whatsapp{background:#25D366}
-footer{background:#111827;color:white;text-align:center;padding:25px}
-.lang{padding:10px;border:0;border-radius:8px;background:#111827;color:white}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#fff8fb;
+  color:#241b21;
+  line-height:1.6;
+  transition:.3s;
+}
+
+body.dark{
+  background:#171117;
+  color:#fff;
+}
+
+header{
+  min-height:520px;
+  padding:25px 18px 70px;
+  background:
+    linear-gradient(rgba(70,15,45,.75),rgba(120,25,75,.85)),
+    radial-gradient(circle at top,#f9a8d4,#7c2d5e 60%);
+  color:white;
+}
+
+nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+}
+
+.nav-buttons{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+button,select{
+  border:0;
+  border-radius:8px;
+  padding:10px 13px;
+  cursor:pointer;
+}
+
+select{
+  background:white;
+  color:#222;
+}
+
+.dark-btn{
+  background:#111827;
+  color:white;
+}
+
+.hero{
+  max-width:850px;
+  margin:100px auto 0;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:19px;
+  margin-bottom:25px;
+}
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  padding:13px 22px;
+  border-radius:10px;
+  margin:5px;
+  font-weight:bold;
+}
+
+.primary{
+  background:white;
+  color:#9d174d;
+}
+
+.whatsapp{
+  background:#25D366;
+  color:white;
+}
+
+section{
+  padding:65px 16px;
+  text-align:center;
+}
+
+.dark section{
+  background:#171117;
+}
+
+.section-title{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:#777;
+  margin-bottom:30px;
+}
+
+.dark .subtitle{
+  color:#ccc;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:28px 20px;
+  box-shadow:0 7px 25px rgba(0,0,0,.08);
+}
+
+.dark .card{
+  background:#241d24;
+}
+
+.icon{
+  font-size:45px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  font-size:21px;
+  margin-bottom:8px;
+}
+
+.price{
+  color:#be185d;
+  font-size:23px;
+  font-weight:bold;
+  margin:14px 0;
+}
+
+.dark .price{
+  color:#f9a8d4;
+}
+
+.about{
+  max-width:800px;
+  margin:auto;
+  font-size:18px;
+}
+
+.booking{
+  background:#fce7f3;
+}
+
+.dark .booking{
+  background:#35152a;
+}
+
+.form{
+  max-width:550px;
+  margin:25px auto;
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 7px 25px rgba(0,0,0,.08);
+}
+
+.dark .form{
+  background:#241d24;
+}
+
+input,textarea{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:16px;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.submit{
+  width:100%;
+  background:#be185d;
+  color:white;
+  font-size:16px;
+}
+
+footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+}
+
+.lang-area{
+  margin-bottom:20px;
+}
+
+@media(max-width:600px){
+
+  header{
+    min-height:560px;
+  }
+
+  .hero{
+    margin-top:80px;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  nav{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>💇 Glow Beauty Salon</h1>
-<p>Beauty • Hair • Style</p>
-<p>✨ Professional Salon Services</p>
-</header>
 
-<section>
+<nav>
 
-<select class="lang" onchange="language(this.value)">
+<div class="logo">
+✨ Glow Beauty Salon
+</div>
+
+<div class="nav-buttons">
+
+<select id="language" onchange="changeLanguage()">
 <option value="en">English</option>
 <option value="ur">اردو</option>
 <option value="ps">پښتو</option>
 <option value="ar">العربية</option>
 </select>
 
-<h2 id="title">Our Services</h2>
-
-<div class="grid">
-
-<div class="card">
-<div class="icon">💇‍♀️</div>
-<h3>Hair Styling</h3>
-<p>Professional hair styling.</p>
-<div class="price">$20</div>
-</div>
-
-<div class="card">
-<div class="icon">💅</div>
-<h3>Manicure & Pedicure</h3>
-<p>Relaxing beauty treatment.</p>
-<div class="price">$15</div>
-</div>
-
-<div class="card">
-<div class="icon">💄</div>
-<h3>Makeup</h3>
-<p>Professional makeup service.</p>
-<div class="price">$30</div>
-</div>
+<button class="dark-btn" onclick="toggleDark()">
+🌙
+</button>
 
 </div>
 
-<br>
+</nav>
 
-<a class="btn whatsapp"
-href="https://wa.me/923313247153?text=Hello%2C%20I%20want%20to%20book%20a%20salon%20service."
-target="_blank">
-💬 Book Appointment
+
+<div class="hero">
+
+<h1 id="heroTitle">Beauty That Makes You Shine</h1>
+
+<p id="heroText">
+Professional beauty, hair and makeup services in a modern salon.
+</p>
+
+<a href="#services" class="btn primary" id="servicesBtn">
+Explore Services
 </a>
 
-</section>
-
-<footer>
-<p>🌐 Demo Website by Zamran Web Development</p>
-</footer>
-
-<script>
-
-function language(x){
-
-let title=document.getElementById("title");
-
-if(x==="ur") title.textContent="ہماری خدمات";
-if(x==="ps") title.textContent="زموږ خدمتونه";
-if(x==="ar") title.textContent="خدماتنا";
-if(x==="en") title.textContent="Our Services";
-
-}
-
-</script>
-
-</body>
-  </html>
+<a href="#booking" class="btn whatsapp" id="bookBtn">
+💬 Book
