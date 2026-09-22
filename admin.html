@@ -1,44 +1,47 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zamran Admin Dashboard</title>
+<title>Zamran Web Development - Admin</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
+  font-family:Arial,sans-serif;
   background:#f3f4f6;
   color:#111827;
+}
+
+.container{
+  width:95%;
+  max-width:1200px;
+  margin:auto;
 }
 
 header{
   background:#111827;
   color:white;
-  padding:18px 6%;
+  padding:18px 0;
+  margin-bottom:25px;
+}
+
+header .container{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
-header h1{
-  font-size:22px;
-}
+h1{font-size:22px}
 
 button{
   border:0;
+  padding:10px 16px;
   border-radius:8px;
-  padding:10px 15px;
   cursor:pointer;
   font-weight:bold;
 }
@@ -48,44 +51,39 @@ button{
   color:white;
 }
 
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:30px 15px;
-}
-
-.login{
-  max-width:420px;
-  margin:80px auto;
+.login-box{
+  max-width:400px;
+  margin:70px auto;
   background:white;
   padding:30px;
   border-radius:15px;
   box-shadow:0 5px 25px rgba(0,0,0,.1);
 }
 
-.login h2{
+.login-box h2{
   text-align:center;
-  margin-bottom:25px;
+  margin-bottom:20px;
 }
 
-input,select{
+input{
   width:100%;
   padding:13px;
-  margin:7px 0 15px;
-  border:1px solid #d1d5db;
+  margin-bottom:12px;
+  border:1px solid #ddd;
   border-radius:8px;
+  font-size:15px;
 }
 
-.loginBtn{
+.login-btn{
   width:100%;
   background:#2563eb;
   color:white;
 }
 
-.error{
+#loginError{
   color:#dc2626;
-  margin-top:10px;
   text-align:center;
+  margin-top:12px;
 }
 
 #dashboard{
@@ -94,8 +92,7 @@ input,select{
 
 .stats{
   display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(160px,1fr));
+  grid-template-columns:repeat(4,1fr);
   gap:15px;
   margin-bottom:25px;
 }
@@ -104,86 +101,77 @@ input,select{
   background:white;
   padding:20px;
   border-radius:12px;
-  text-align:center;
   box-shadow:0 3px 15px rgba(0,0,0,.06);
 }
 
 .stat h3{
+  font-size:14px;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+
+.stat p{
   font-size:28px;
-  margin-bottom:5px;
+  font-weight:bold;
 }
 
 .orders{
   background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 3px 15px rgba(0,0,0,.06);
-}
-
-.order{
+  border-radius:12px;
   padding:20px;
-  border-bottom:1px solid #e5e7eb;
+  overflow-x:auto;
 }
 
-.order:last-child{
-  border-bottom:0;
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:950px;
 }
 
-.orderTop{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
+th,td{
+  padding:12px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+  vertical-align:top;
 }
 
-.company{
-  font-size:20px;
-  font-weight:bold;
+th{
+  background:#f8fafc;
 }
 
-.badge{
-  padding:6px 10px;
-  border-radius:20px;
-  background:#e5e7eb;
-  font-size:13px;
-}
-
-.order p{
-  margin-top:7px;
-}
-
-.actions{
-  margin-top:15px;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.save{
-  background:#2563eb;
-  color:white;
+select{
+  padding:8px;
+  border:1px solid #ddd;
+  border-radius:7px;
 }
 
 .delete{
-  background:#ef4444;
+  background:#dc2626;
   color:white;
 }
 
-.refresh{
-  background:#111827;
-  color:white;
-  margin-bottom:20px;
+.details{
+  max-width:250px;
+  word-break:break-word;
 }
 
-.noOrders{
-  padding:30px;
+.empty{
   text-align:center;
+  padding:30px;
+  color:#777;
 }
 
-@media(max-width:600px){
-  header{
-    gap:10px;
+@media(max-width:800px){
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:500px){
+  header .container{
     flex-direction:column;
+    gap:12px;
+    align-items:flex-start;
   }
 }
 </style>
@@ -191,177 +179,195 @@ input,select{
 
 <body>
 
-<header>
-
-<h1>🔐 Zamran Admin</h1>
-
-<button
-class="logout"
-id="logoutBtn"
-style="display:none">
-Logout
-</button>
-
-</header>
-
-
 <!-- LOGIN -->
+<div id="loginBox" class="login-box">
 
-<div id="loginBox" class="login">
-
-<h2>Admin Login</h2>
-
-<form id="loginForm">
-
-<label>Email</label>
+<h2>🔐 Admin Login</h2>
 
 <input
 id="email"
 type="email"
-placeholder="Admin email"
-required>
-
-<label>Password</label>
+placeholder="Admin Email">
 
 <input
 id="password"
 type="password"
-placeholder="Password"
-required>
+placeholder="Password">
 
-<button
-class="loginBtn"
-type="submit">
+<button class="login-btn" onclick="login()">
 Login
 </button>
 
-<p id="loginError" class="error"></p>
-
-</form>
+<div id="loginError"></div>
 
 </div>
 
 
 <!-- DASHBOARD -->
-
 <div id="dashboard">
 
+<header>
 <div class="container">
+
+<h1>🚀 Zamran Web Development</h1>
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
+
+</div>
+</header>
+
+
+<main class="container">
 
 <div class="stats">
 
 <div class="stat">
-<h3 id="total">0</h3>
-<p>Total Orders</p>
+<h3>Total Orders</h3>
+<p id="totalOrders">0</p>
 </div>
 
 <div class="stat">
-<h3 id="saudi">0</h3>
-<p>🇸🇦 Saudi</p>
+<h3>New Orders</h3>
+<p id="newOrders">0</p>
 </div>
 
 <div class="stat">
-<h3 id="uae">0</h3>
-<p>🇦🇪 UAE</p>
+<h3>In Progress</h3>
+<p id="progressOrders">0</p>
 </div>
 
 <div class="stat">
-<h3 id="newOrders">0</h3>
-<p>🟢 New</p>
-</div>
-
-<div class="stat">
-<h3 id="completed">0</h3>
-<p>✅ Completed</p>
+<h3>Completed</h3>
+<p id="completedOrders">0</p>
 </div>
 
 </div>
 
 
-<button
-class="refresh"
-onclick="loadOrders()">
-🔄 Refresh Orders
-</button>
+<div class="orders">
 
+<h2 style="margin-bottom:20px">
+📋 Client Orders
+</h2>
 
-<div class="orders" id="orders">
-
-<div class="noOrders">
-Loading...
+<div id="ordersContent">
+Loading orders...
 </div>
 
 </div>
 
-</div>
+</main>
 
 </div>
 
 
 <script>
 
-/* ================================
-   SUPABASE CONFIG
-================================ */
+/* =================================
+   SUPABASE CONNECTION
+================================= */
 
+const SUPABASE_URL =
+"https://oqfzfprimebfswosmwou.supabase.co";
 
 const SUPABASE_KEY =
-"YOUR_PUBLISHABLE_OR_ANON_KEY";
-const SUPABASE_KEY =
-"YOUR_PUBLISHABLE_OR_ANON_KEY";
+"YOUR_PUBLISHABLE_KEY";
 
-const db =
-supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
 );
 
 
-/* ================================
+/* =================================
    LOGIN
-================================ */
+================================= */
 
-document
-.getElementById("loginForm")
-.addEventListener("submit", async function(e){
-
-e.preventDefault();
+async function login(){
 
 const email =
-document.getElementById("email").value;
+document.getElementById("email").value.trim();
 
 const password =
 document.getElementById("password").value;
 
+const errorBox =
+document.getElementById("loginError");
+
+errorBox.textContent="";
+
+if(!email || !password){
+
+errorBox.textContent=
+"Please enter email and password.";
+
+return;
+}
+
 const {data,error} =
-await db.auth.signInWithPassword({
-  email:email,
-  password:password
+await supabaseClient.auth.signInWithPassword({
+email:email,
+password:password
 });
 
 if(error){
 
-document.getElementById("loginError")
-.textContent =
-"Login failed: " + error.message;
+errorBox.textContent=error.message;
 
 return;
-
 }
 
 showDashboard();
 
-});
+}
 
 
-/* ================================
-   CHECK EXISTING SESSION
-================================ */
+/* =================================
+   LOGOUT
+================================= */
+
+async function logout(){
+
+await supabaseClient.auth.signOut();
+
+document.getElementById("dashboard")
+.style.display="none";
+
+document.getElementById("loginBox")
+.style.display="block";
+
+}
+
+
+/* =================================
+   DASHBOARD
+================================= */
+
+async function showDashboard(){
+
+document.getElementById("loginBox")
+.style.display="none";
+
+document.getElementById("dashboard")
+.style.display="block";
+
+await loadOrders();
+
+}
+
+
+/* =================================
+   SESSION
+================================= */
 
 async function checkSession(){
 
 const {data} =
-await db.auth.getSession();
+await supabaseClient.auth.getSession();
 
 if(data.session){
 
@@ -372,49 +378,14 @@ showDashboard();
 }
 
 
-/* ================================
-   SHOW DASHBOARD
-================================ */
-
-function showDashboard(){
-
-document.getElementById("loginBox")
-.style.display="none";
-
-document.getElementById("dashboard")
-.style.display="block";
-
-document.getElementById("logoutBtn")
-.style.display="block";
-
-loadOrders();
-
-}
-
-
-/* ================================
-   LOGOUT
-================================ */
-
-document
-.getElementById("logoutBtn")
-.addEventListener("click", async function(){
-
-await db.auth.signOut();
-
-location.reload();
-
-});
-
-
-/* ================================
+/* =================================
    LOAD ORDERS
-================================ */
+================================= */
 
 async function loadOrders(){
 
 const {data,error} =
-await db
+await supabaseClient
 .from("client_orders")
 .select("*")
 .order("created_at",{ascending:false});
@@ -422,16 +393,14 @@ await db
 
 if(error){
 
-document.getElementById("orders")
-.innerHTML =
-"<div class='noOrders'>Error loading orders.</div>";
-
-console.error(error);
+document.getElementById("ordersContent")
+.innerHTML=
+"<p style='color:red'>Error: "
++escapeHtml(error.message)
++"</p>";
 
 return;
-
 }
-
 
 updateStats(data);
 
@@ -440,230 +409,242 @@ displayOrders(data);
 }
 
 
-/* ================================
+/* =================================
    STATS
-================================ */
+================================= */
 
-function updateStats(data){
+function updateStats(orders){
 
-document.getElementById("total")
-.textContent=data.length;
-
-document.getElementById("saudi")
-.textContent=
-data.filter(x =>
-x.country.includes("Saudi")
-).length;
-
-document.getElementById("uae")
-.textContent=
-data.filter(x =>
-x.country.includes("United Arab")
-).length;
+document.getElementById("totalOrders")
+.textContent=orders.length;
 
 document.getElementById("newOrders")
 .textContent=
-data.filter(x =>
-x.status==="New"
-).length;
+orders.filter(o=>o.status==="New").length;
 
-document.getElementById("completed")
+document.getElementById("progressOrders")
 .textContent=
-data.filter(x =>
-x.status==="Completed"
-).length;
+orders.filter(o=>o.status==="In Progress").length;
+
+document.getElementById("completedOrders")
+.textContent=
+orders.filter(o=>o.status==="Completed").length;
 
 }
 
 
-/* ================================
+/* =================================
    DISPLAY ORDERS
-================================ */
+================================= */
 
-function displayOrders(data){
+function displayOrders(orders){
 
-const box =
-document.getElementById("orders");
+const box=
+document.getElementById("ordersContent");
 
-if(!data.length){
+if(!orders.length){
 
-box.innerHTML =
-"<div class='noOrders'>No client orders yet.</div>";
+box.innerHTML=
+"<div class='empty'>No client orders yet.</div>";
 
 return;
-
 }
 
-box.innerHTML="";
+let html=`
 
-data.forEach(order => {
+<table>
 
-const item =
-document.createElement("div");
+<thead>
 
-item.className="order";
+<tr>
+<th>Date</th>
+<th>Company</th>
+<th>Country</th>
+<th>Business</th>
+<th>Service</th>
+<th>Budget</th>
+<th>Client</th>
+<th>Details</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
 
-item.innerHTML=`
+</thead>
 
-<div class="orderTop">
+<tbody>
+`;
 
-<div class="company">
-${escapeHTML(order.company_name)}
-</div>
 
-<div class="badge">
-${escapeHTML(order.status || "New")}
-</div>
+orders.forEach(order=>{
 
-</div>
+const date=
+new Date(order.created_at)
+.toLocaleString();
 
-<p>
-🌍 <strong>Country:</strong>
-${escapeHTML(order.country)}
-</p>
 
-<p>
-🏢 <strong>Business:</strong>
-${escapeHTML(order.business_type)}
-</p>
+html+=`
 
-<p>
-💻 <strong>Service:</strong>
-${escapeHTML(order.service)}
-</p>
+<tr>
 
-<p>
-💰 <strong>Budget:</strong>
-${escapeHTML(order.budget || "Not decided")}
-</p>
+<td>
+${escapeHtml(date)}
+</td>
 
-<p>
-📝 <strong>Details:</strong>
-${escapeHTML(order.project_details || "No details")}
-</p>
+<td>
+<strong>
+${escapeHtml(order.company_name||"-")}
+</strong>
+</td>
 
-<p>
-🕐 <strong>Date:</strong>
-${new Date(order.created_at).toLocaleString()}
-</p>
+<td>
+${escapeHtml(order.country||"-")}
+</td>
 
-<div class="actions">
+<td>
+${escapeHtml(order.business_type||"-")}
+</td>
 
-<select id="status-${order.id}">
+<td>
+${escapeHtml(order.service||"-")}
+</td>
 
-<option ${order.status==="New"?"selected":""}>
+<td>
+${escapeHtml(order.budget||"-")}
+</td>
+
+<td>
+${escapeHtml(order.client_name||"-")}
+<br>
+${escapeHtml(order.client_email||"")}
+<br>
+${escapeHtml(order.client_phone||"")}
+</td>
+
+<td class="details">
+${escapeHtml(order.project_details||"-")}
+</td>
+
+<td>
+
+<select
+onchange="changeStatus('${order.id}',this.value)">
+
+<option value="New"
+${order.status==="New"?"selected":""}>
 New
 </option>
 
-<option ${order.status==="In Progress"?"selected":""}>
+<option value="In Progress"
+${order.status==="In Progress"?"selected":""}>
 In Progress
 </option>
 
-<option ${order.status==="Completed"?"selected":""}>
+<option value="Completed"
+${order.status==="Completed"?"selected":""}>
 Completed
+</option>
+
+<option value="Cancelled"
+${order.status==="Cancelled"?"selected":""}>
+Cancelled
 </option>
 
 </select>
 
-<button
-class="save"
-onclick="updateStatus(${order.id})">
-Save Status
-</button>
+</td>
+
+<td>
 
 <button
 class="delete"
-onclick="deleteOrder(${order.id})">
+onclick="deleteOrder('${order.id}')">
+
 Delete
+
 </button>
 
-</div>
+</td>
 
+</tr>
 `;
 
-box.appendChild(item);
-
 });
+
+
+html+=`
+
+</tbody>
+</table>
+`;
+
+box.innerHTML=html;
 
 }
 
 
-/* ================================
-   UPDATE STATUS
-================================ */
+/* =================================
+   CHANGE STATUS
+================================= */
 
-async function updateStatus(id){
-
-const status =
-document.getElementById(
-"status-"+id
-).value;
+async function changeStatus(id,status){
 
 const {error} =
-await db
+await supabaseClient
 .from("client_orders")
 .update({status:status})
 .eq("id",id);
 
 if(error){
 
-alert("Could not update status.");
+alert("Update failed: "+error.message);
+
+return;
+}
+
+await loadOrders();
+
+}
+
+
+/* =================================
+   DELETE
+================================= */
+
+async function deleteOrder(id){
+
+if(!confirm(
+"Are you sure you want to delete this order?"
+)){
 
 return;
 
 }
 
-alert("✅ Status updated.");
-
-loadOrders();
-
-}
-
-
-/* ================================
-   DELETE ORDER
-================================ */
-
-async function deleteOrder(id){
-
-const confirmDelete =
-confirm(
-"Delete this client order?"
-);
-
-if(!confirmDelete)return;
-
 const {error} =
-await db
+await supabaseClient
 .from("client_orders")
 .delete()
 .eq("id",id);
 
 if(error){
 
-alert("Could not delete order.");
+alert("Delete failed: "+error.message);
 
 return;
+}
+
+await loadOrders();
 
 }
 
-loadOrders();
 
-}
-
-
-/* ================================
+/* =================================
    SECURITY
-================================ */
+================================= */
 
-function escapeHTML(value){
+function escapeHtml(value){
 
-if(value===null ||
-value===undefined){
-return "";
-}
-
-return String(value)
+return String(value??"")
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
@@ -672,6 +653,10 @@ return String(value)
 
 }
 
+
+/* =================================
+   START
+================================= */
 
 checkSession();
 
