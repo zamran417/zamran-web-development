@@ -1,15 +1,534 @@
-<div class="card demo">
-<h3>🏨 Hotel Website</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<p>Modern hotel website with room booking.</p>
+<title>Zamran Web Development</title>
 
-<span class="badge">Rooms</span>
-<span class="badge">Booking</span>
-<span class="badge">WhatsApp</span>
-<br>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
 
-<a class="demo-btn" href="khyber-bagh-hotel.html">
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+color:#111827;
+line-height:1.6;
+transition:.3s;
+}
+
+body.dark{
+background:#0f172a;
+color:#f8fafc;
+}
+
+header{
+background:linear-gradient(135deg,#111827,#2563eb);
+color:white;
+padding:70px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:38px;
+margin-bottom:12px;
+}
+
+header p{
+font-size:18px;
+margin:8px;
+}
+
+.nav{
+position:sticky;
+top:0;
+z-index:10;
+background:white;
+padding:12px;
+display:flex;
+justify-content:center;
+gap:8px;
+box-shadow:0 2px 10px #ddd;
+}
+
+.dark .nav{
+background:#1e293b;
+box-shadow:none;
+}
+
+button,.btn{
+border:0;
+padding:11px 16px;
+border-radius:9px;
+cursor:pointer;
+font-weight:bold;
+text-decoration:none;
+display:inline-block;
+}
+
+.lang{
+background:#2563eb;
+color:white;
+}
+
+.mode{
+background:#111827;
+color:white;
+}
+
+section{
+padding:45px 15px;
+text-align:center;
+}
+
+section h2{
+font-size:30px;
+margin-bottom:12px;
+}
+
+.subtitle{
+color:#64748b;
+margin-bottom:25px;
+}
+
+.dark .subtitle{
+color:#cbd5e1;
+}
+
+.grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:28px 20px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+transition:.25s;
+}
+
+.dark .card{
+background:#1e293b;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.icon{
+font-size:45px;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.demo{
+background:#2563eb;
+color:white;
+margin-top:18px;
+}
+
+.services .card{
+text-align:left;
+}
+
+.price{
+font-size:28px;
+font-weight:bold;
+color:#2563eb;
+margin:12px;
+}
+
+.dark .price{
+color:#60a5fa;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+font-size:18px;
+padding:15px 25px;
+}
+
+.contact{
+background:#eaf2ff;
+}
+
+.dark .contact{
+background:#172554;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:30px 15px;
+}
+
+#content{
+transition:.2s;
+}
+
+@media(max-width:600px){
+
+header h1{
+font-size:30px;
+}
+
+.nav{
+flex-wrap:wrap;
+}
+
+section h2{
+font-size:25px;
+}
+
+.card{
+padding:22px 16px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🌐 Zamran Web Development</h1>
+
+<p id="tagline">
+Professional Websites for Modern Businesses
+</p>
+
+<p>🇸🇦 Saudi Arabia • 🇦🇪 UAE • 🇵🇰 Pakistan</p>
+
+</header>
+
+
+<div class="nav">
+
+<button class="lang" onclick="setLanguage('en')">English</button>
+
+<button class="lang" onclick="setLanguage('ur')">اردو</button>
+
+<button class="lang" onclick="setLanguage('ps')">پښتو</button>
+
+<button class="lang" onclick="setLanguage('ar')">العربية</button>
+
+<button class="mode" onclick="darkMode()">🌙</button>
+
+</div>
+
+
+<section>
+
+<h2 id="projectsTitle">🚀 Our Demo Websites</h2>
+
+<p class="subtitle" id="projectsSub">
+Professional website concepts for different businesses.
+</p>
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="icon">🍽️</div>
+
+<h3>Restaurant Website</h3>
+
+<p>Modern restaurant website with menu and WhatsApp ordering.</p>
+
+<a class="btn demo" href="restaurant.html">
 View Demo
 </a>
 
 </div>
+
+
+<div class="card">
+
+<div class="icon">🏢</div>
+
+<h3>Company Website</h3>
+
+<p>Professional business website for companies and services.</p>
+
+<a class="btn demo" href="business.html">
+View Demo
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🛒</div>
+
+<h3>Online Store</h3>
+
+<p>Modern online store design for products and businesses.</p>
+
+<a class="btn demo" href="store.html">
+View Demo
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🏨</div>
+
+<h3>Hotel Website</h3>
+
+<p>Hotel website with rooms, prices and WhatsApp booking.</p>
+
+<a class="btn demo" href="khyber-bagh-hotel.html">
+View Demo
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💇</div>
+
+<h3>Salon & Beauty</h3>
+
+<p>Elegant website for salons, beauty centers and services.</p>
+
+<a class="btn demo" href="#">
+View Demo
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🚗</div>
+
+<h3>Car Rental</h3>
+
+<p>Professional car rental website with vehicle listings.</p>
+
+<a class="btn demo" href="#">
+View Demo
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="services">
+
+<h2 id="servicesTitle">💼 Our Services</h2>
+
+<p class="subtitle">
+Everything your business needs online.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🌐</div>
+<h3>Business Website</h3>
+<p>Professional and responsive websites.</p>
+</div>
+
+<div class="card">
+<div class="icon">📱</div>
+<h3>Mobile-Friendly Design</h3>
+<p>Beautiful websites for phones, tablets and computers.</p>
+</div>
+
+<div class="card">
+<div class="icon">🛍️</div>
+<h3>Online Store</h3>
+<p>Product pages and simple shopping solutions.</p>
+</div>
+
+<div class="card">
+<div class="icon">🔧</div>
+<h3>Website Maintenance</h3>
+<p>Updates, improvements and website support.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>💰 Packages</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Basic</h3>
+
+<div class="price">$50+</div>
+
+<p>1–3 Pages</p>
+<p>Mobile Friendly</p>
+<p>WhatsApp Contact</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Business</h3>
+
+<div class="price">$100+</div>
+
+<p>Professional Design</p>
+<p>Multiple Pages</p>
+<p>Mobile Responsive</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Custom</h3>
+
+<div class="price">Custom</div>
+
+<p>Custom Features</p>
+<p>Business Requirements</p>
+<p>Professional Support</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="contact">
+
+<h2 id="contactTitle">📞 Start Your Project</h2>
+
+<p class="subtitle">
+Let's build a professional website for your business.
+</p>
+
+<a class="btn whatsapp"
+href="https://wa.me/923313247153?text=Hello%20Zamran%20Web%20Development%2C%20I%20want%20a%20website."
+target="_blank">
+
+💬 WhatsApp Us
+
+</a>
+
+</section>
+
+
+<footer>
+
+<h3>🌐 Zamran Web Development</h3>
+
+<p>Professional Web Solutions</p>
+
+<p>© 2026 Zamran Web Development</p>
+
+</footer>
+
+
+<script>
+
+function darkMode(){
+
+document.body.classList.toggle("dark");
+
+}
+
+
+const translations={
+
+en:{
+tag:"Professional Websites for Modern Businesses",
+projects:"🚀 Our Demo Websites",
+sub:"Professional website concepts for different businesses.",
+services:"💼 Our Services",
+contact:"📞 Start Your Project"
+},
+
+ur:{
+tag:"جدید کاروباروں کے لیے پروفیشنل ویب سائٹس",
+projects:"🚀 ہماری ڈیمو ویب سائٹس",
+sub:"مختلف کاروباروں کے لیے پروفیشنل ویب سائٹ ڈیزائن۔",
+services:"💼 ہماری خدمات",
+contact:"📞 اپنا پروجیکٹ شروع کریں"
+},
+
+ps:{
+tag:"د عصري کاروبارونو لپاره مسلکي ویب سایټونه",
+projects:"🚀 زموږ د ډیمو ویب سایټونه",
+sub:"د بېلابېلو کاروبارونو لپاره مسلکي ویب سایټونه.",
+services:"💼 زموږ خدمتونه",
+contact:"📞 خپل پروژې پیل کړئ"
+},
+
+ar:{
+tag:"مواقع إلكترونية احترافية للأعمال الحديثة",
+projects:"🚀 نماذج مواقعنا الإلكترونية",
+sub:"تصاميم مواقع احترافية لمختلف أنواع الأعمال.",
+services:"💼 خدماتنا",
+contact:"📞 ابدأ مشروعك"
+}
+
+};
+
+
+function setLanguage(lang){
+
+document.documentElement.lang=lang;
+
+document.getElementById("tagline").textContent=
+translations[lang].tag;
+
+document.getElementById("projectsTitle").textContent=
+translations[lang].projects;
+
+document.getElementById("projectsSub").textContent=
+translations[lang].sub;
+
+document.getElementById("servicesTitle").textContent=
+translations[lang].services;
+
+document.getElementById("contactTitle").textContent=
+translations[lang].contact;
+
+if(lang==="ur" || lang==="ps" || lang==="ar"){
+
+document.body.style.direction="rtl";
+
+}else{
+
+document.body.style.direction="ltr";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
