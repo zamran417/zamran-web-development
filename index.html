@@ -172,10 +172,6 @@ text-align:center;
 padding:30px 15px;
 }
 
-#content{
-transition:.2s;
-}
-
 @media(max-width:600px){
 
 header h1{
@@ -208,29 +204,45 @@ padding:22px 16px;
 Professional Websites for Modern Businesses
 </p>
 
-<p>🇸🇦 Saudi Arabia • 🇦🇪 UAE • 🇵🇰 Pakistan</p>
+<p id="countries">
+🇸🇦 Saudi Arabia • 🇦🇪 UAE • 🇵🇰 Pakistan
+</p>
 
 </header>
 
 
 <div class="nav">
 
-<button class="lang" onclick="setLanguage('en')">English</button>
+<button class="lang" onclick="setLanguage('en')">
+English
+</button>
 
-<button class="lang" onclick="setLanguage('ur')">اردو</button>
+<button class="lang" onclick="setLanguage('ur')">
+اردو
+</button>
 
-<button class="lang" onclick="setLanguage('ps')">پښتو</button>
+<button class="lang" onclick="setLanguage('ps')">
+پښتو
+</button>
 
-<button class="lang" onclick="setLanguage('ar')">العربية</button>
+<button class="lang" onclick="setLanguage('ar')">
+العربية
+</button>
 
-<button class="mode" onclick="darkMode()">🌙</button>
+<button class="mode" onclick="darkMode()">
+🌙
+</button>
 
 </div>
 
 
+<!-- DEMO WEBSITES -->
+
 <section>
 
-<h2 id="projectsTitle">🚀 Our Demo Websites</h2>
+<h2 id="projectsTitle">
+🚀 Our Demo Websites
+</h2>
 
 <p class="subtitle" id="projectsSub">
 Professional website concepts for different businesses.
@@ -243,11 +255,17 @@ Professional website concepts for different businesses.
 
 <div class="icon">🍽️</div>
 
-<h3>Restaurant Website</h3>
+<h3 id="restaurantTitle">
+Restaurant Website
+</h3>
 
-<p>Modern restaurant website with menu and WhatsApp ordering.</p>
+<p id="restaurantText">
+Modern restaurant website with menu and WhatsApp ordering.
+</p>
 
-<a class="btn demo" href="restaurant.html">
+<a class="btn demo"
+href="restaurant.html"
+id="restaurantBtn">
 View Demo
 </a>
 
@@ -258,11 +276,17 @@ View Demo
 
 <div class="icon">🏢</div>
 
-<h3>Company Website</h3>
+<h3 id="companyTitle">
+Company Website
+</h3>
 
-<p>Professional business website for companies and services.</p>
+<p id="companyText">
+Professional business website for companies and services.
+</p>
 
-<a class="btn demo" href="business.html">
+<a class="btn demo"
+href="business.html"
+id="companyBtn">
 View Demo
 </a>
 
@@ -273,11 +297,17 @@ View Demo
 
 <div class="icon">🛒</div>
 
-<h3>Online Store</h3>
+<h3 id="storeTitle">
+Online Store
+</h3>
 
-<p>Modern online store design for products and businesses.</p>
+<p id="storeText">
+Modern online store design for products and businesses.
+</p>
 
-<a class="btn demo" href="store.html">
+<a class="btn demo"
+href="store.html"
+id="storeBtn">
 View Demo
 </a>
 
@@ -288,11 +318,17 @@ View Demo
 
 <div class="icon">🏨</div>
 
-<h3>Hotel Website</h3>
+<h3 id="hotelTitle">
+Hotel Website
+</h3>
 
-<p>Hotel website with rooms, prices and WhatsApp booking.</p>
+<p id="hotelText">
+Hotel website with rooms, prices and WhatsApp booking.
+</p>
 
-<a class="btn demo" href="khyber-bagh-hotel.html">
+<a class="btn demo"
+href="khyber-bagh-hotel.html"
+id="hotelBtn">
 View Demo
 </a>
 
@@ -303,11 +339,19 @@ View Demo
 
 <div class="icon">💇</div>
 
-<h3>Salon & Beauty</h3>
+<h3 id="salonTitle">
+Salon & Beauty
+</h3>
 
-<p>Elegant website for salons, beauty centers and services.</p>
+<p id="salonText">
+Elegant website for salons, beauty centers and services.
+</p>
 
-<a class="btn demo" href="salon.html">View Demo</a>
+<a class="btn demo"
+href="salon.html"
+id="salonBtn">
+View Demo
+</a>
 
 </div>
 
@@ -316,11 +360,19 @@ View Demo
 
 <div class="icon">🚗</div>
 
-<h3>Car Rental</h3>
+<h3 id="carTitle">
+Car Rental
+</h3>
 
-<p>Professional car rental website with vehicle listings.</p>
+<p id="carText">
+Professional car rental website with vehicle listings.
+</p>
 
-<a class="btn demo" href="car-rental.html">View Demo</a>
+<a class="btn demo"
+href="car-rental.html"
+id="carBtn">
+View Demo
+</a>
 
 </div>
 
@@ -329,86 +381,167 @@ View Demo
 </section>
 
 
+<!-- SERVICES -->
+
 <section class="services">
 
-<h2 id="servicesTitle">💼 Our Services</h2>
+<h2 id="servicesTitle">
+💼 Our Services
+</h2>
 
-<p class="subtitle">
+<p class="subtitle" id="servicesSub">
 Everything your business needs online.
 </p>
 
 <div class="grid">
 
+
 <div class="card">
+
 <div class="icon">🌐</div>
-<h3>Business Website</h3>
-<p>Professional and responsive websites.</p>
+
+<h3 id="service1Title">
+Business Website
+</h3>
+
+<p id="service1Text">
+Professional and responsive websites.
+</p>
+
 </div>
 
+
 <div class="card">
+
 <div class="icon">📱</div>
-<h3>Mobile-Friendly Design</h3>
-<p>Beautiful websites for phones, tablets and computers.</p>
+
+<h3 id="service2Title">
+Mobile-Friendly Design
+</h3>
+
+<p id="service2Text">
+Beautiful websites for phones, tablets and computers.
+</p>
+
 </div>
 
+
 <div class="card">
+
 <div class="icon">🛍️</div>
-<h3>Online Store</h3>
-<p>Product pages and simple shopping solutions.</p>
+
+<h3 id="service3Title">
+Online Store
+</h3>
+
+<p id="service3Text">
+Product pages and simple shopping solutions.
+</p>
+
 </div>
 
+
 <div class="card">
+
 <div class="icon">🔧</div>
-<h3>Website Maintenance</h3>
-<p>Updates, improvements and website support.</p>
+
+<h3 id="service4Title">
+Website Maintenance
+</h3>
+
+<p id="service4Text">
+Updates, improvements and website support.
+</p>
+
 </div>
 
 </div>
 
 </section>
 
+
+<!-- PACKAGES -->
 
 <section>
 
-<h2>💰 Packages</h2>
+<h2 id="packagesTitle">
+💰 Packages
+</h2>
 
 <div class="grid">
 
+
 <div class="card">
 
-<h3>Basic</h3>
+<h3 id="basicTitle">
+Basic
+</h3>
 
-<div class="price">$50+</div>
+<div class="price">
+$50+
+</div>
 
-<p>1–3 Pages</p>
-<p>Mobile Friendly</p>
-<p>WhatsApp Contact</p>
+<p id="basic1">
+1–3 Pages
+</p>
+
+<p id="basic2">
+Mobile Friendly
+</p>
+
+<p id="basic3">
+WhatsApp Contact
+</p>
 
 </div>
 
 
 <div class="card">
 
-<h3>Business</h3>
+<h3 id="businessTitle">
+Business
+</h3>
 
-<div class="price">$100+</div>
+<div class="price">
+$100+
+</div>
 
-<p>Professional Design</p>
-<p>Multiple Pages</p>
-<p>Mobile Responsive</p>
+<p id="business1">
+Professional Design
+</p>
+
+<p id="business2">
+Multiple Pages
+</p>
+
+<p id="business3">
+Mobile Responsive
+</p>
 
 </div>
 
 
 <div class="card">
 
-<h3>Custom</h3>
+<h3 id="customTitle">
+Custom
+</h3>
 
-<div class="price">Custom</div>
+<div class="price" id="customPrice">
+Custom
+</div>
 
-<p>Custom Features</p>
-<p>Business Requirements</p>
-<p>Professional Support</p>
+<p id="custom1">
+Custom Features
+</p>
+
+<p id="custom2">
+Business Requirements
+</p>
+
+<p id="custom3">
+Professional Support
+</p>
 
 </div>
 
@@ -417,17 +550,23 @@ Everything your business needs online.
 </section>
 
 
+<!-- CONTACT -->
+
 <section class="contact">
 
-<h2 id="contactTitle">📞 Start Your Project</h2>
+<h2 id="contactTitle">
+📞 Start Your Project
+</h2>
 
-<p class="subtitle">
+<p class="subtitle" id="contactSub">
 Let's build a professional website for your business.
 </p>
 
-<a class="btn whatsapp"
+<a
+class="btn whatsapp"
 href="https://wa.me/923313247153?text=Hello%20Zamran%20Web%20Development%2C%20I%20want%20a%20website."
-target="_blank">
+target="_blank"
+id="whatsappBtn">
 
 💬 WhatsApp Us
 
@@ -436,13 +575,21 @@ target="_blank">
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-<h3>🌐 Zamran Web Development</h3>
+<h3>
+🌐 Zamran Web Development
+</h3>
 
-<p>Professional Web Solutions</p>
+<p id="footerText">
+Professional Web Solutions
+</p>
 
-<p>© 2026 Zamran Web Development</p>
+<p>
+© 2026 Zamran Web Development
+</p>
 
 </footer>
 
@@ -459,35 +606,274 @@ document.body.classList.toggle("dark");
 const translations={
 
 en:{
+
 tag:"Professional Websites for Modern Businesses",
+countries:"🇸🇦 Saudi Arabia • 🇦🇪 UAE • 🇵🇰 Pakistan",
+
 projects:"🚀 Our Demo Websites",
-sub:"Professional website concepts for different businesses.",
+projectsSub:"Professional website concepts for different businesses.",
+
+restaurantTitle:"Restaurant Website",
+restaurantText:"Modern restaurant website with menu and WhatsApp ordering.",
+companyTitle:"Company Website",
+companyText:"Professional business website for companies and services.",
+storeTitle:"Online Store",
+storeText:"Modern online store design for products and businesses.",
+hotelTitle:"Hotel Website",
+hotelText:"Hotel website with rooms, prices and WhatsApp booking.",
+salonTitle:"Salon & Beauty",
+salonText:"Elegant website for salons, beauty centers and services.",
+carTitle:"Car Rental",
+carText:"Professional car rental website with vehicle listings.",
+
+viewDemo:"View Demo",
+
 services:"💼 Our Services",
-contact:"📞 Start Your Project"
+servicesSub:"Everything your business needs online.",
+
+service1Title:"Business Website",
+service1Text:"Professional and responsive websites.",
+service2Title:"Mobile-Friendly Design",
+service2Text:"Beautiful websites for phones, tablets and computers.",
+service3Title:"Online Store",
+service3Text:"Product pages and simple shopping solutions.",
+service4Title:"Website Maintenance",
+service4Text:"Updates, improvements and website support.",
+
+packages:"💰 Packages",
+
+basic:"Basic",
+basic1:"1–3 Pages",
+basic2:"Mobile Friendly",
+basic3:"WhatsApp Contact",
+
+business:"Business",
+business1:"Professional Design",
+business2:"Multiple Pages",
+business3:"Mobile Responsive",
+
+custom:"Custom",
+customPrice:"Custom",
+custom1:"Custom Features",
+custom2:"Business Requirements",
+custom3:"Professional Support",
+
+contact:"📞 Start Your Project",
+contactSub:"Let's build a professional website for your business.",
+whatsapp:"💬 WhatsApp Us",
+
+footer:"Professional Web Solutions"
+
 },
+
 
 ur:{
+
 tag:"جدید کاروباروں کے لیے پروفیشنل ویب سائٹس",
+countries:"🇸🇦 سعودی عرب • 🇦🇪 متحدہ عرب امارات • 🇵🇰 پاکستان",
+
 projects:"🚀 ہماری ڈیمو ویب سائٹس",
-sub:"مختلف کاروباروں کے لیے پروفیشنل ویب سائٹ ڈیزائن۔",
+projectsSub:"مختلف کاروباروں کے لیے پروفیشنل ویب سائٹ ڈیزائن۔",
+
+restaurantTitle:"ریسٹورنٹ ویب سائٹ",
+restaurantText:"مینو اور WhatsApp آرڈرنگ کے ساتھ جدید ریسٹورنٹ ویب سائٹ۔",
+
+companyTitle:"کمپنی ویب سائٹ",
+companyText:"کمپنیوں اور کاروباری خدمات کے لیے پروفیشنل ویب سائٹ۔",
+
+storeTitle:"آن لائن اسٹور",
+storeText:"پروڈکٹس اور کاروبار کے لیے جدید آن لائن اسٹور۔",
+
+hotelTitle:"ہوٹل ویب سائٹ",
+hotelText:"کمروں، قیمتوں اور WhatsApp بکنگ کے ساتھ ہوٹل ویب سائٹ۔",
+
+salonTitle:"سیلون اور بیوٹی",
+salonText:"سیلون اور بیوٹی سینٹرز کے لیے خوبصورت ویب سائٹ۔",
+
+carTitle:"کار رینٹل",
+carText:"گاڑیوں کی تفصیلات کے ساتھ پروفیشنل کار رینٹل ویب سائٹ۔",
+
+viewDemo:"ڈیمو دیکھیں",
+
 services:"💼 ہماری خدمات",
-contact:"📞 اپنا پروجیکٹ شروع کریں"
+servicesSub:"آپ کے کاروبار کو آن لائن کامیاب بنانے کے لیے ضروری خدمات۔",
+
+service1Title:"بزنس ویب سائٹ",
+service1Text:"پروفیشنل اور ریسپانسیو ویب سائٹس۔",
+
+service2Title:"موبائل فرینڈلی ڈیزائن",
+service2Text:"موبائل، ٹیبلٹ اور کمپیوٹر کے لیے خوبصورت ویب سائٹس۔",
+
+service3Title:"آن لائن اسٹور",
+service3Text:"پروڈکٹ پیجز اور آسان آن لائن شاپنگ سلوشنز۔",
+
+service4Title:"ویب سائٹ مینٹیننس",
+service4Text:"ویب سائٹ اپڈیٹس، بہتری اور سپورٹ۔",
+
+packages:"💰 پیکجز",
+
+basic:"بیسک",
+basic1:"1–3 صفحات",
+basic2:"موبائل فرینڈلی",
+basic3:"WhatsApp رابطہ",
+
+business:"بزنس",
+business1:"پروفیشنل ڈیزائن",
+business2:"متعدد صفحات",
+business3:"موبائل ریسپانسیو",
+
+custom:"کسٹم",
+customPrice:"کسٹم",
+custom1:"کسٹم فیچرز",
+custom2:"کاروباری ضروریات",
+custom3:"پروفیشنل سپورٹ",
+
+contact:"📞 اپنا پروجیکٹ شروع کریں",
+contactSub:"آئیے آپ کے کاروبار کے لیے ایک پروفیشنل ویب سائٹ بنائیں۔",
+whatsapp:"💬 WhatsApp کریں",
+
+footer:"پروفیشنل ویب سلوشنز"
+
 },
+
 
 ps:{
+
 tag:"د عصري کاروبارونو لپاره مسلکي ویب سایټونه",
+countries:"🇸🇦 سعودي عربستان • 🇦🇪 متحده عربي امارات • 🇵🇰 پاکستان",
+
 projects:"🚀 زموږ د ډیمو ویب سایټونه",
-sub:"د بېلابېلو کاروبارونو لپاره مسلکي ویب سایټونه.",
+projectsSub:"د بېلابېلو کاروبارونو لپاره مسلکي ویب سایټ ډیزاینونه.",
+
+restaurantTitle:"د رستورانت ویب سایټ",
+restaurantText:"د مینو او WhatsApp آرډر سره عصري رستورانت ویب سایټ.",
+
+companyTitle:"د شرکت ویب سایټ",
+companyText:"د شرکتونو او کاروباري خدماتو لپاره مسلکي ویب سایټ.",
+
+storeTitle:"آنلاین پلورنځی",
+storeText:"د محصولاتو او کاروبارونو لپاره عصري آنلاین پلورنځی.",
+
+hotelTitle:"د هوټل ویب سایټ",
+hotelText:"د خونو، قیمتونو او WhatsApp بکینګ سره د هوټل ویب سایټ.",
+
+salonTitle:"سیلون او ښکلا",
+salonText:"د سیلونونو او ښکلا مرکزونو لپاره ښکلی ویب سایټ.",
+
+carTitle:"د موټرو کرایه",
+carText:"د موټرو معلوماتو سره مسلکي کار رینټل ویب سایټ.",
+
+viewDemo:"ډیمو وګورئ",
+
 services:"💼 زموږ خدمتونه",
-contact:"📞 خپل پروژې پیل کړئ"
+servicesSub:"ستاسو کاروبار ته د آنلاین پرمختګ لپاره اړین خدمات.",
+
+service1Title:"د کاروبار ویب سایټ",
+service1Text:"مسلکي او ریسپانسیو ویب سایټونه.",
+
+service2Title:"د موبایل لپاره ډیزاین",
+service2Text:"د موبایل، ټابلیټ او کمپیوټر لپاره ښکلي ویب سایټونه.",
+
+service3Title:"آنلاین پلورنځی",
+service3Text:"د محصولاتو پاڼې او آسانه آنلاین شاپینګ.",
+
+service4Title:"د ویب سایټ ساتنه",
+service4Text:"اپډیټونه، پرمختګونه او د ویب سایټ ملاتړ.",
+
+packages:"💰 پیکجونه",
+
+basic:"بیسک",
+basic1:"1–3 پاڼې",
+basic2:"موبایل فرینډلي",
+basic3:"WhatsApp اړیکه",
+
+business:"بزنس",
+business1:"مسلکي ډیزاین",
+business2:"څو پاڼې",
+business3:"موبایل ریسپانسیو",
+
+custom:"کسټم",
+customPrice:"کسټم",
+custom1:"کسټم فیچرونه",
+custom2:"د کاروبار اړتیاوې",
+custom3:"مسلکي ملاتړ",
+
+contact:"📞 خپله پروژه پیل کړئ",
+contactSub:"راځئ ستاسو د کاروبار لپاره مسلکي ویب سایټ جوړ کړو.",
+whatsapp:"💬 WhatsApp وکړئ",
+
+footer:"مسلکي ویب حل لارې"
+
 },
 
+
 ar:{
+
 tag:"مواقع إلكترونية احترافية للأعمال الحديثة",
+countries:"🇸🇦 المملكة العربية السعودية • 🇦🇪 الإمارات • 🇵🇰 باكستان",
+
 projects:"🚀 نماذج مواقعنا الإلكترونية",
-sub:"تصاميم مواقع احترافية لمختلف أنواع الأعمال.",
+projectsSub:"تصاميم مواقع احترافية لمختلف أنواع الأعمال.",
+
+restaurantTitle:"موقع مطعم",
+restaurantText:"موقع مطعم حديث مع قائمة طعام وطلب عبر واتساب.",
+
+companyTitle:"موقع شركة",
+companyText:"موقع احترافي للشركات والخدمات التجارية.",
+
+storeTitle:"متجر إلكتروني",
+storeText:"متجر إلكتروني حديث للمنتجات والأعمال.",
+
+hotelTitle:"موقع فندق",
+hotelText:"موقع فندق مع الغرف والأسعار والحجز عبر واتساب.",
+
+salonTitle:"صالون وتجميل",
+salonText:"موقع أنيق للصالونات ومراكز التجميل.",
+
+carTitle:"تأجير السيارات",
+carText:"موقع احترافي لتأجير السيارات مع عرض المركبات.",
+
+viewDemo:"عرض النموذج",
+
 services:"💼 خدماتنا",
-contact:"📞 ابدأ مشروعك"
+servicesSub:"كل ما يحتاجه عملك على الإنترنت.",
+
+service1Title:"موقع أعمال",
+service1Text:"مواقع احترافية ومتجاوبة.",
+
+service2Title:"تصميم متوافق مع الجوال",
+service2Text:"مواقع جميلة للهواتف والأجهزة اللوحية وأجهزة الكمبيوتر.",
+
+service3Title:"متجر إلكتروني",
+service3Text:"صفحات المنتجات وحلول التسوق البسيطة.",
+
+service4Title:"صيانة الموقع",
+service4Text:"تحديثات وتحسينات ودعم للموقع.",
+
+packages:"💰 الباقات",
+
+basic:"أساسي",
+basic1:"1–3 صفحات",
+basic2:"متوافق مع الجوال",
+basic3:"التواصل عبر واتساب",
+
+business:"أعمال",
+business1:"تصميم احترافي",
+business2:"عدة صفحات",
+business3:"متجاوب مع الجوال",
+
+custom:"مخصص",
+customPrice:"مخصص",
+custom1:"ميزات مخصصة",
+custom2:"متطلبات العمل",
+custom3:"دعم احترافي",
+
+contact:"📞 ابدأ مشروعك",
+contactSub:"لنقم ببناء موقع احترافي لعملك.",
+whatsapp:"💬 تواصل عبر واتساب",
+
+footer:"حلول ويب احترافية"
+
 }
 
 };
@@ -495,31 +881,84 @@ contact:"📞 ابدأ مشروعك"
 
 function setLanguage(lang){
 
+const t=translations[lang];
+
 document.documentElement.lang=lang;
 
-document.getElementById("tagline").textContent=
-translations[lang].tag;
+document.getElementById("tagline").textContent=t.tag;
+document.getElementById("countries").textContent=t.countries;
 
-document.getElementById("projectsTitle").textContent=
-translations[lang].projects;
+document.getElementById("projectsTitle").textContent=t.projects;
+document.getElementById("projectsSub").textContent=t.projectsSub;
 
-document.getElementById("projectsSub").textContent=
-translations[lang].sub;
+document.getElementById("restaurantTitle").textContent=t.restaurantTitle;
+document.getElementById("restaurantText").textContent=t.restaurantText;
 
-document.getElementById("servicesTitle").textContent=
-translations[lang].services;
+document.getElementById("companyTitle").textContent=t.companyTitle;
+document.getElementById("companyText").textContent=t.companyText;
 
-document.getElementById("contactTitle").textContent=
-translations[lang].contact;
+document.getElementById("storeTitle").textContent=t.storeTitle;
+document.getElementById("storeText").textContent=t.storeText;
+
+document.getElementById("hotelTitle").textContent=t.hotelTitle;
+document.getElementById("hotelText").textContent=t.hotelText;
+
+document.getElementById("salonTitle").textContent=t.salonTitle;
+document.getElementById("salonText").textContent=t.salonText;
+
+document.getElementById("carTitle").textContent=t.carTitle;
+document.getElementById("carText").textContent=t.carText;
+
+document.getElementById("restaurantBtn").textContent=t.viewDemo;
+document.getElementById("companyBtn").textContent=t.viewDemo;
+document.getElementById("storeBtn").textContent=t.viewDemo;
+document.getElementById("hotelBtn").textContent=t.viewDemo;
+document.getElementById("salonBtn").textContent=t.viewDemo;
+document.getElementById("carBtn").textContent=t.viewDemo;
+
+document.getElementById("servicesTitle").textContent=t.services;
+document.getElementById("servicesSub").textContent=t.servicesSub;
+
+document.getElementById("service1Title").textContent=t.service1Title;
+document.getElementById("service1Text").textContent=t.service1Text;
+
+document.getElementById("service2Title").textContent=t.service2Title;
+document.getElementById("service2Text").textContent=t.service2Text;
+
+document.getElementById("service3Title").textContent=t.service3Title;
+document.getElementById("service3Text").textContent=t.service3Text;
+
+document.getElementById("service4Title").textContent=t.service4Title;
+document.getElementById("service4Text").textContent=t.service4Text;
+
+document.getElementById("packagesTitle").textContent=t.packages;
+
+document.getElementById("basicTitle").textContent=t.basic;
+document.getElementById("basic1").textContent=t.basic1;
+document.getElementById("basic2").textContent=t.basic2;
+document.getElementById("basic3").textContent=t.basic3;
+
+document.getElementById("businessTitle").textContent=t.business;
+document.getElementById("business1").textContent=t.business1;
+document.getElementById("business2").textContent=t.business2;
+document.getElementById("business3").textContent=t.business3;
+
+document.getElementById("customTitle").textContent=t.custom;
+document.getElementById("customPrice").textContent=t.customPrice;
+document.getElementById("custom1").textContent=t.custom1;
+document.getElementById("custom2").textContent=t.custom2;
+document.getElementById("custom3").textContent=t.custom3;
+
+document.getElementById("contactTitle").textContent=t.contact;
+document.getElementById("contactSub").textContent=t.contactSub;
+document.getElementById("whatsappBtn").textContent=t.whatsapp;
+
+document.getElementById("footerText").textContent=t.footer;
 
 if(lang==="ur" || lang==="ps" || lang==="ar"){
-
 document.body.style.direction="rtl";
-
 }else{
-
 document.body.style.direction="ltr";
-
 }
 
 }
@@ -527,4 +966,4 @@ document.body.style.direction="ltr";
 </script>
 
 </body>
-</html>
+  </html>
