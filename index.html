@@ -1,1435 +1,2986 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Zamran Web Development - Professional websites, online stores, restaurant, hotel, salon and business websites.">
-<meta name="keywords" content="web development, website design, Saudi Arabia, UAE, Pakistan, restaurant website, hotel website, online store">
-<meta name="author" content="Zamran Web Development">
-
-<title>Zamran Web Development</title>
-
-<style>
-:root{
-  --bg:#f7f9fc;
-  --surface:#ffffff;
-  --text:#101828;
-  --muted:#667085;
-  --line:#e4e7ec;
-  --primary:#2563eb;
-  --primary2:#0ea5e9;
-  --dark:#080d18;
-  --success:#16a34a;
-  --warning:#f59e0b;
-  --shadow:0 18px 55px rgba(16,24,40,.10);
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Inter,Segoe UI,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-  transition:.25s;
-}
-
-body.dark{
-  --bg:#0b1220;
-  --surface:#111c30;
-  --text:#f8fafc;
-  --muted:#b8c3d4;
-  --line:#24324a;
-  --shadow:0 18px 55px rgba(0,0,0,.3);
-}
-
-body.dark .portfolio{
-  background:#0e192b;
-}
-
-body.dark .screen{
-  background:linear-gradient(145deg,#17243a,#111827);
-  color:white;
-}
-
-body.dark .form{
-  background:#111c30;
-  color:white;
-}
-
-body.dark .form input,
-body.dark .form textarea{
-  background:#0b1220;
-  color:white;
-  border-color:#334155;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-button,
-input,
-textarea{
-  font:inherit;
-}
-
-.container{
-  width:min(1120px,92%);
-  margin:auto;
-}
-
-/* TOP BAR */
-
-.topbar{
-  background:#080d18;
-  color:#dbeafe;
-  font-size:13px;
-  padding:8px 0;
-}
-
-.topbar .container{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-/* HEADER */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-
-body.dark header{
-  background:rgba(17,28,48,.94);
-}
-
-nav{
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:800;
-  font-size:19px;
-}
-
-.brand-mark{
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  display:grid;
-  place-items:center;
-  color:white;
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  box-shadow:0 8px 20px #2563eb44;
-}
-
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:23px;
-  color:var(--muted);
-  font-weight:600;
-  font-size:14px;
-}
-
-.nav-links a:hover{
-  color:var(--primary);
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.icon-btn,
-.menu-btn{
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--text);
-  width:42px;
-  height:42px;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-.menu-btn{
-  display:none;
-}
-
-/* BUTTONS */
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border:0;
-  border-radius:10px;
-  padding:12px 18px;
-  font-weight:700;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.btn-primary{
-  background:var(--primary);
-  color:white;
-  box-shadow:0 8px 18px #2563eb33;
-}
-
-.btn-light{
-  background:var(--surface);
-  border:1px solid var(--line);
-  color:var(--text);
-}
-
-.btn-success{
-  background:var(--success);
-  color:white;
-}
-
-/* HERO */
-
-.hero{
-  padding:86px 0 74px;
-  overflow:hidden;
-  position:relative;
-  background:
-    radial-gradient(circle at 85% 15%,#dbeafe 0,transparent 32%),
-    var(--bg);
-}
-
-body.dark .hero{
-  background:
-    radial-gradient(circle at 85% 15%,#17356e 0,transparent 32%),
-    var(--bg);
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  align-items:center;
-  gap:55px;
-}
-
-.eyebrow{
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-  color:var(--primary);
-  font-weight:800;
-  font-size:13px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin-bottom:18px;
-}
-
-h1{
-  font-size:clamp(40px,6vw,72px);
-  line-height:1.05;
-  letter-spacing:-.05em;
-  margin-bottom:22px;
-}
-
-h1 span{
-  color:var(--primary);
-}
-
-.hero-copy{
-  font-size:19px;
-  color:var(--muted);
-  max-width:600px;
-  margin-bottom:28px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.proof{
-  display:flex;
-  gap:25px;
-  margin-top:35px;
-  flex-wrap:wrap;
-}
-
-.proof strong{
-  display:block;
-  font-size:22px;
-}
-
-.proof small{
-  color:var(--muted);
-}
-
-/* HERO CARD */
-
-.hero-card{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:22px;
-  box-shadow:var(--shadow);
-  transform:rotate(2deg);
-}
-
-.browser{
-  border:1px solid var(--line);
-  border-radius:16px;
-  overflow:hidden;
-}
-
-.browser-bar{
-  padding:11px 14px;
-  background:var(--bg);
-  display:flex;
-  gap:6px;
-}
-
-.dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:#f87171;
-}
-
-.dot:nth-child(2){
-  background:#fbbf24;
-}
-
-.dot:nth-child(3){
-  background:#34d399;
-}
-
-.screen{
-  padding:26px;
-  background:linear-gradient(145deg,#eff6ff,#fff);
-  color:#0f172a;
-}
-
-.screen h3{
-  font-size:27px;
-  line-height:1.15;
-  margin:35px 0 10px;
-}
-
-.screen p{
-  color:#64748b;
-  font-size:13px;
-}
-
-.screen-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
-  margin-top:28px;
-}
-
-.screen-grid div{
-  height:72px;
-  border-radius:10px;
-  background:#dbeafe;
-}
-
-.screen-grid div:nth-child(2){
-  background:#bfdbfe;
-}
-
-.screen-grid div:nth-child(3){
-  background:#e0f2fe;
-}
-
-/* SECTIONS */
-
-section{
-  padding:82px 0;
-}
-
-.section-head{
-  text-align:center;
-  max-width:700px;
-  margin:0 auto 42px;
-}
-
-.section-head h2{
-  font-size:clamp(29px,4vw,44px);
-  line-height:1.15;
-  margin-bottom:12px;
-}
-
-.section-head p{
-  color:var(--muted);
-}
-
-/* CARDS */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.card{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:26px;
-  box-shadow:0 8px 30px rgba(16,24,40,.05);
-  transition:.25s;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:var(--shadow);
-}
-
-.card-icon{
-  font-size:30px;
-  margin-bottom:16px;
-}
-
-.card h3{
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:15px;
-}
-
-/* SERVICES */
-
-.service-number{
-  color:var(--primary);
-  font-size:12px;
-  font-weight:800;
-  margin-bottom:8px;
-}
-
-/* PORTFOLIO */
-
-.portfolio{
-  background:#eef4ff;
-}
-
-.portfolio .card{
-  padding:0;
-  overflow:hidden;
-}
-
-.project-img{
-  height:175px;
-  padding:22px;
-  display:flex;
-  align-items:end;
-  color:white;
-  font-size:23px;
-  font-weight:800;
-  background:linear-gradient(135deg,#111827,#2563eb);
-}
-
-.project-img.two{
-  background:linear-gradient(135deg,#064e3b,#10b981);
-}
-
-.project-img.three{
-  background:linear-gradient(135deg,#581c87,#db2777);
-}
-
-.project-img.four{
-  background:linear-gradient(135deg,#7c2d12,#f97316);
-}
-
-.project-info{
-  padding:20px;
-}
-
-.project-info a{
-  display:inline-block;
-  margin-top:15px;
-  color:var(--primary);
-  font-weight:800;
-}
-
-/* ABOUT */
-
-.about{
-  display:grid;
-  grid-template-columns:.9fr 1.1fr;
-  gap:50px;
-  align-items:center;
-}
-
-.about-box{
-  background:linear-gradient(135deg,#1d4ed8,#0ea5e9);
-  border-radius:25px;
-  padding:35px;
-  color:white;
-  min-height:300px;
-  display:flex;
-  flex-direction:column;
-  justify-content:end;
-}
-
-.about-box strong{
-  font-size:60px;
-  line-height:1;
-}
-
-.about-box p{
-  margin-top:12px;
-  color:#dbeafe;
-}
-
-.about-copy p{
-  color:var(--muted);
-  margin:14px 0;
-}
-
-.checks{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:22px;
-}
-
-.checks span{
-  font-weight:700;
-  font-size:14px;
-}
-
-.checks span::before{
-  content:"✓";
-  color:var(--success);
-  margin-right:8px;
-}
-
-/* PRICING */
-
-.price-card{
-  position:relative;
-}
-
-.price-card.featured{
-  border:2px solid var(--primary);
-  transform:translateY(-8px);
-}
-
-.badge{
-  position:absolute;
-  right:18px;
-  top:18px;
-  background:#dbeafe;
-  color:#1d4ed8;
-  border-radius:99px;
-  padding:5px 10px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.price{
-  font-size:37px;
-  font-weight:900;
-  margin:16px 0;
-  color:var(--primary);
-}
-
-.price-list{
-  list-style:none;
-  color:var(--muted);
-  margin:18px 0;
-}
-
-.price-list li{
-  margin:9px 0;
-}
-
-.price-list li::before{
-  content:"✓";
-  color:var(--success);
-  font-weight:bold;
-  margin-right:8px;
-}
-
-/* CONTACT */
-
-.contact{
-  background:linear-gradient(135deg,#111827,#1e40af);
-  color:white;
-}
-
-.contact .section-head p{
-  color:#cbd5e1;
-}
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:35px;
-  align-items:start;
-}
-
-.contact-details p{
-  color:#cbd5e1;
-  margin:12px 0 25px;
-}
-
-.contact-item{
-  display:flex;
-  gap:12px;
-  margin:18px 0;
-}
-
-.contact-item b{
-  display:block;
-}
-
-.contact-item span{
-  color:#cbd5e1;
-  font-size:14px;
-}
-
-.form{
-  background:white;
-  color:#111827;
-  padding:26px;
-  border-radius:18px;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.form label{
-  font-size:13px;
-  font-weight:800;
-}
-
-.form input,
-.form textarea{
-  width:100%;
-  border:1px solid #d0d5dd;
-  border-radius:9px;
-  padding:12px;
-  margin-top:6px;
-  margin-bottom:14px;
-  font:inherit;
-}
-
-.form textarea{
-  min-height:115px;
-  resize:vertical;
-}
-
-.form .full{
-  grid-column:1/-1;
-}
-
-.form .btn{
-  width:100%;
-}
-
-/* CTA */
-
-.cta{
-  padding:60px 0;
-  background:linear-gradient(135deg,#2563eb,#0ea5e9);
-  color:white;
-  text-align:center;
-}
-
-.cta h2{
-  font-size:clamp(30px,5vw,48px);
-  margin-bottom:12px;
-}
-
-.cta p{
-  color:#dbeafe;
-  margin-bottom:22px;
-}
-
-/* FOOTER */
-
-footer{
-  background:#080d18;
-  color:#cbd5e1;
-  padding:28px 0;
-}
-
-.footer-row{
-  display:flex;
-  justify-content:space-between;
-  gap:18px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-.footer-brand{
-  color:white;
-  font-weight:800;
-}
-
-/* RTL */
-
-[dir="rtl"]{
-  font-family:Tahoma,Arial,sans-serif;
-}
-
-[dir="rtl"] .nav-links{
-  flex-direction:row-reverse;
-}
-
-[dir="rtl"] .checks span::before{
-  margin-right:0;
-  margin-left:8px;
-}
-
-[dir="rtl"] .price-list li::before{
-  margin-right:0;
-  margin-left:8px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  .nav-links{
-    display:none;
-    position:absolute;
-    left:4%;
-    right:4%;
-    top:68px;
-    padding:18px;
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:14px;
-    box-shadow:var(--shadow);
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .nav-links.open{
-    display:flex;
-  }
-
-  .menu-btn{
-    display:block;
-  }
-
-  .hero-grid,
-  .about,
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-card{
-    max-width:570px;
-    margin:auto;
-  }
-
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .price-card.featured{
-    transform:none;
-  }
-}
-
-@media(max-width:600px){
-
-  .topbar .container{
-    justify-content:center;
-    text-align:center;
-  }
-
-  nav{
-    height:64px;
-  }
-
-  .brand{
-    font-size:16px;
-  }
-
-  .brand-mark{
-    width:36px;
-    height:36px;
-  }
-
-  .hero{
-    padding:62px 0;
-  }
-
-  .hero-copy{
-    font-size:17px;
-  }
-
-  .grid,
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .checks{
-    grid-template-columns:1fr;
-  }
-
-  section{
-    padding:65px 0;
-  }
-
-  .screen h3{
-    font-size:23px;
-  }
-
-  .footer-row{
-    justify-content:center;
-    text-align:center;
-  }
-
-  .proof{
-    gap:18px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Zamran Web Development | Professional Websites</title>
+
+  <meta name="description"
+        content="Zamran Web Development creates professional, mobile-friendly websites, landing pages, online stores and business websites for Pakistan, Saudi Arabia and UAE.">
+  <meta name="keywords"
+        content="Zamran Web Development, website development Pakistan, Saudi Arabia websites, UAE websites, restaurant website, hotel website, online store">
+  <meta name="author" content="Zamran Web Development">
+
+  <meta property="og:title" content="Zamran Web Development">
+  <meta property="og:description"
+        content="Professional mobile-friendly websites for modern businesses.">
+  <meta property="og:type" content="website">
+
+  <meta name="theme-color" content="#2563eb">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8fafc;
+      color: #111827;
+      line-height: 1.6;
+      transition: 0.3s;
+    }
+
+    body.dark {
+      background: #0f172a;
+      color: #f8fafc;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      background: #111827;
+      color: white;
+      padding: 9px 0;
+      font-size: 14px;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e5e7eb;
+      backdrop-filter: blur(10px);
+    }
+
+    body.dark header {
+      background: rgba(15,23,42,0.96);
+      border-color: #334155;
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: #2563eb;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    button,
+    .btn {
+      border: 0;
+      cursor: pointer;
+      padding: 11px 17px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .btn-whatsapp {
+      background: #16a34a;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background: #15803d;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 1px solid #cbd5e1;
+      background: transparent;
+      color: inherit;
+    }
+
+    .dark .btn-outline {
+      border-color: #475569;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 24px;
+      background: transparent;
+      color: inherit;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 85px 0;
+      background:
+        radial-gradient(circle at top right, rgba(37,99,235,.18), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(14,165,233,.12), transparent 35%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    .dark .badge {
+      background: #1e3a8a;
+      color: #dbeafe;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #2563eb;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 680px;
+      color: #475569;
+      margin-bottom: 28px;
+    }
+
+    .dark .hero p {
+      color: #cbd5e1;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(15,23,42,.10);
+    }
+
+    .dark .hero-card,
+    .dark .card,
+    .dark .price-card,
+    .dark .contact-box,
+    .dark form {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 15px;
+      font-size: 23px;
+    }
+
+    .check {
+      margin: 12px 0;
+      display: flex;
+      gap: 9px;
+    }
+
+    .check::before {
+      content: "✓";
+      color: #16a34a;
+      font-weight: bold;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px, 5vw, 45px);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: #64748b;
+    }
+
+    .dark .section-title p {
+      color: #94a3b8;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 27px;
+      border-radius: 18px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(15,23,42,.10);
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #64748b;
+      margin-bottom: 14px;
+    }
+
+    .dark .card p {
+      color: #cbd5e1;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-bottom: 18px;
+    }
+
+    .card li {
+      margin: 7px 0;
+      font-size: 14px;
+    }
+
+    .card li::before {
+      content: "✓ ";
+      color: #16a34a;
+      font-weight: bold;
+    }
+
+    .small-wa {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* BUSINESS TYPES */
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .type {
+      padding: 25px 12px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      background: white;
+      border-radius: 15px;
+      font-weight: 700;
+    }
+
+    .dark .type {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .type div {
+      font-size: 35px;
+      margin-bottom: 8px;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .portfolio {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid #e2e8f0;
+      background: white;
+    }
+
+    .dark .portfolio {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .portfolio-top {
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      font-size: 65px;
+      background: linear-gradient(135deg,#dbeafe,#eff6ff);
+    }
+
+    .portfolio-body {
+      padding: 22px;
+    }
+
+    .portfolio-body p {
+      color: #64748b;
+      margin: 8px 0 15px;
+    }
+
+    .dark .portfolio-body p {
+      color: #cbd5e1;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-box {
+      padding: 30px;
+      border-radius: 20px;
+      background: #eff6ff;
+    }
+
+    .dark .about-box {
+      background: #172554;
+    }
+
+    .about-box h3 {
+      margin-bottom: 15px;
+    }
+
+    /* PROCESS */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 15px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #2563eb;
+      color: white;
+      font-weight: 800;
+    }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .price-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    .price-card.featured {
+      border: 2px solid #2563eb;
+    }
+
+    .price {
+      font-size: 35px;
+      font-weight: 800;
+      margin: 15px 0;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .price-card li {
+      margin: 10px 0;
+    }
+
+    .price-card li::before {
+      content: "✓ ";
+      color: #16a34a;
+      font-weight: bold;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact-box,
+    form {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .contact-item {
+      padding: 17px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .dark .contact-item {
+      border-color: #334155;
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-item a {
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font: inherit;
+      background: white;
+      color: #111827;
+      outline: none;
+    }
+
+    .dark input,
+    .dark select,
+    .dark textarea {
+      background: #0f172a;
+      color: white;
+      border-color: #475569;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #2563eb;
+    }
+
+    /* CTA */
+    .cta {
+      background: #111827;
+      color: white;
+      border-radius: 25px;
+      padding: 55px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(30px,5vw,45px);
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #cbd5e1;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #020617;
+      color: white;
+      padding: 45px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer li {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin: 7px 0;
+    }
+
+    .copyright {
+      padding-top: 20px;
+      border-top: 1px solid #1e293b;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    /* FLOATING WHATSAPP */
+    .floating-wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1000;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #16a34a;
+      color: white;
+      font-size: 27px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+    }
+
+    /* MOBILE */
+    @media(max-width: 950px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .types-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+        background: white;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .dark .nav-links {
+        background: #0f172a;
+        border-color: #334155;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-actions .btn-whatsapp {
+        display: none;
+      }
+    }
+
+    @media(max-width: 650px) {
+      .container {
+        width: 94%;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .topbar-content {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .services-grid,
+      .portfolio-grid,
+      .types-grid,
+      .process-grid,
+      .form-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cta {
+        padding: 35px 20px;
+      }
+
+      .nav {
+        min-height: 62px;
+      }
+
+      .nav-links {
+        top: 62px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .lang-select {
+        max-width: 80px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <!-- TOP BAR -->
-
 <div class="topbar">
-  <div class="container">
-    <span>✦ Professional Digital Solutions</span>
-    <span>📞 WhatsApp: 0331 3247153</span>
+  <div class="container topbar-content">
+    <span data-i18n="topText">Professional digital solutions for businesses</span>
+    <a href="https://wa.me/923313247153?text=Hello%20Zamran%20Web%20Development"
+       target="_blank">
+      WhatsApp: 0331 3247153
+    </a>
   </div>
 </div>
 
-
 <!-- HEADER -->
-
 <header>
+  <div class="container nav">
 
-<nav class="container">
+    <a href="#" class="logo">Zamran Web Development</a>
 
-<a class="brand" href="#home">
-  <span class="brand-mark">Z</span>
-  <span>Zamran <span style="color:var(--primary)">Web</span></span>
-</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services" data-i18n="navServices">Services</a>
+      <a href="#work" data-i18n="navWork">Our Work</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#pricing" data-i18n="navPricing">Pricing</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+    </nav>
 
-<div class="nav-links" id="navLinks">
+    <div class="nav-actions">
 
-<a href="#services" data-i18n="navServices">Services</a>
+      <select id="languageSelect" class="lang-select"
+              onchange="changeLanguage(this.value)"
+              aria-label="Language">
+        <option value="en">EN</option>
+        <option value="ur">اردو</option>
+        <option value="ar">العربية</option>
+        <option value="ps">پښتو</option>
+      </select>
 
-<a href="#work" data-i18n="navWork">Our Work</a>
+      <button class="btn btn-outline" onclick="toggleDarkMode()" aria-label="Dark mode">
+        🌙
+      </button>
 
-<a href="#about" data-i18n="navAbout">About</a>
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/923313247153?text=Hello%20Zamran%20Web%20Development%2C%20I%20want%20a%20website."
+         target="_blank">
+        WhatsApp
+      </a>
 
-<a href="#pricing" data-i18n="navPricing">Pricing</a>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
 
-<a href="#contact" data-i18n="navContact">Contact</a>
-
-</div>
-
-<div class="nav-actions">
-
-<button class="icon-btn"
-onclick="toggleTheme()"
-aria-label="Toggle dark mode">
-🌙
-</button>
-
-<button class="icon-btn"
-onclick="cycleLanguage()"
-id="languageBtn"
-aria-label="Change language">
-EN
-</button>
-
-<button class="menu-btn"
-onclick="toggleMenu()"
-aria-label="Open menu">
-☰
-</button>
-
-</div>
-
-</nav>
-
+  </div>
 </header>
 
-
-<main id="home">
-
-
 <!-- HERO -->
-
 <section class="hero">
+  <div class="container hero-grid">
 
-<div class="container hero-grid">
+    <div>
+      <span class="badge" data-i18n="badge">
+        Pakistan • Saudi Arabia • UAE
+      </span>
 
-<div>
+      <h1 data-i18n="heroTitle">
+        Build a stronger <span>online presence.</span>
+      </h1>
 
-<div class="eyebrow">
-✦
-<span data-i18n="eyebrow">
-Websites that grow businesses
-</span>
-</div>
+      <p data-i18n="heroText">
+        Professional, mobile-friendly websites for restaurants, hotels,
+        companies, salons, online stores and growing businesses.
+      </p>
 
-<h1 data-i18n="heroTitle">
-Build a stronger <span>online presence.</span>
-</h1>
+      <div class="hero-buttons">
 
-<p class="hero-copy" data-i18n="heroText">
-We design fast, modern and mobile-friendly websites that help businesses look professional and connect with more customers.
-</p>
+        <a class="btn btn-whatsapp"
+           href="https://wa.me/923313247153?text=Hello%20Zamran%20Web%20Development%20%F0%9F%91%8B%0AI%20want%20to%20discuss%20a%20website%20project."
+           target="_blank"
+           data-i18n="startWhatsApp">
+          Start on WhatsApp
+        </a>
 
-<div class="hero-buttons">
+        <a class="btn btn-outline" href="#work" data-i18n="viewWork">
+          View Work
+        </a>
 
-<a class="btn btn-primary"
-href="#contact"
-data-i18n="startBtn">
-Start your project →
-</a>
+      </div>
+    </div>
 
-<a class="btn btn-light"
-href="#work"
-data-i18n="viewBtn">
-View our work
-</a>
+    <div class="hero-card">
+      <h3 data-i18n="whyTitle">Why your business needs a website</h3>
 
-</div>
+      <div class="check" data-i18n="why1">
+        Customers can find your business online.
+      </div>
 
-<div class="proof">
+      <div class="check" data-i18n="why2">
+        Your services and products can be shown clearly.
+      </div>
 
-<div>
-<strong>50+</strong>
-<small data-i18n="proof1">Projects delivered</small>
-</div>
+      <div class="check" data-i18n="why3">
+        Customers can contact you directly on WhatsApp.
+      </div>
 
-<div>
-<strong>4.9/5</strong>
-<small data-i18n="proof2">Client satisfaction</small>
-</div>
+      <div class="check" data-i18n="why4">
+        Your website works on mobile, tablet and desktop.
+      </div>
 
-<div>
-<strong>24/7</strong>
-<small data-i18n="proof3">Support available</small>
-</div>
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/923313247153?text=Hello%2C%20please%20tell%20me%20about%20your%20website%20services."
+         target="_blank"
+         data-i18n="askNow">
+        Ask on WhatsApp
+      </a>
+    </div>
 
-</div>
-
-</div>
-
-
-<div class="hero-card">
-
-<div class="browser">
-
-<div class="browser-bar">
-<i class="dot"></i>
-<i class="dot"></i>
-<i class="dot"></i>
-</div>
-
-<div class="screen">
-
-<small>zamran-web-development</small>
-
-<h3>
-Make your business<br>
-<b>impossible to ignore.</b>
-</h3>
-
-<p>
-Clean Design • Smart Strategy • Real Results
-</p>
-
-<div class="screen-grid">
-<div></div>
-<div></div>
-<div></div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
-
 
 <!-- SERVICES -->
-
 <section id="services">
-
-<div class="container">
-
-<div class="section-head">
-
-<h2 data-i18n="servicesTitle">
-Everything your business needs online
-</h2>
-
-<p data-i18n="servicesText">
-Professional digital solutions for restaurants, hotels, companies, shops and growing businesses.
-</p>
-
-</div>
-
-
-<div class="grid">
-
-
-<article class="card">
-
-<div class="card-icon">🌐</div>
-
-<div class="service-number">01</div>
-
-<h3 data-i18n="service1">
-Business Websites
-</h3>
-
-<p data-i18n="service1Text">
-Professional and responsive websites for modern businesses.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">🛒</div>
-
-<div class="service-number">02</div>
-
-<h3 data-i18n="service2">
-Online Stores
-</h3>
-
-<p data-i18n="service2Text">
-Showcase products and make it easier for customers to order.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">🍽️</div>
-
-<div class="service-number">03</div>
-
-<h3 data-i18n="service3">
-Restaurant Websites
-</h3>
-
-<p data-i18n="service3Text">
-Menus, locations, offers and WhatsApp ordering in one website.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">🏨</div>
-
-<div class="service-number">04</div>
-
-<h3 data-i18n="service4">
-Hotel Websites
-</h3>
-
-<p data-i18n="service4Text">
-Rooms, prices, gallery, location and booking inquiries.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">💇</div>
-
-<div class="service-number">05</div>
-
-<h3 data-i18n="service5">
-Salon Websites
-</h3>
-
-<p data-i18n="service5Text">
-Services, prices, gallery and WhatsApp appointment booking.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">🏢</div>
-
-<div class="service-number">06</div>
-
-<h3 data-i18n="service6">
-Company Websites
-</h3>
-
-<p data-i18n="service6Text">
-Professional websites for companies, agencies and organizations.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">🚀</div>
-
-<div class="service-number">07</div>
-
-<h3 data-i18n="service7">
-Landing Pages
-</h3>
-
-<p data-i18n="service7Text">
-High-quality landing pages designed to generate customers.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">💬</div>
-
-<div class="service-number">08</div>
-
-<h3 data-i18n="service8">
-WhatsApp Integration
-</h3>
-
-<p data-i18n="service8Text">
-Connect customers directly to your business WhatsApp.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">⚡</div>
-
-<div class="service-number">09</div>
-
-<h3 data-i18n="service9">
-SEO & Speed
-</h3>
-
-<p data-i18n="service9Text">
-Clean structure, fast loading and basic search optimization.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">🔧</div>
-
-<div class="service-number">10</div>
-
-<h3 data-i18n="service10">
-Website Maintenance
-</h3>
-
-<p data-i18n="service10Text">
-Updates, improvements and support after your website goes live.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">📱</div>
-
-<div class="service-number">11</div>
-
-<h3 data-i18n="service11">
-Mobile-Friendly Design
-</h3>
-
-<p data-i18n="service11Text">
-Websites that work beautifully on phones, tablets and computers.
-</p>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-icon">📊</div>
-
-<div class="service-number">12</div>
-
-<h3 data-i18n="service12">
-Business App Concepts
-</h3>
-
-<p data-i18n="service12Text">
-Simple web apps and dashboards for growing businesses.
-</p>
-
-</article>
-
-
-</div>
-
-</div>
-
+  <div class="container">
+
+    <div class="section-title">
+      <h2 data-i18n="servicesTitle">Our Services</h2>
+      <p data-i18n="servicesText">
+        Complete website solutions from design to launch and updates.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- 1 -->
+      <div class="card">
+        <div class="icon">💼</div>
+        <h3 data-i18n="s1Title">Business Website</h3>
+        <p data-i18n="s1Text">A professional website for your company or business.</p>
+        <ul>
+          <li data-i18n="s1a">Home, About and Services pages</li>
+          <li data-i18n="s1b">Contact and WhatsApp buttons</li>
+          <li data-i18n="s1c">Mobile responsive design</li>
+          <li data-i18n="s1d">Basic SEO setup</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Business Website"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 2 -->
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3 data-i18n="s2Title">Landing Page</h3>
+        <p data-i18n="s2Text">A focused page for a product, campaign or service.</p>
+        <ul>
+          <li data-i18n="s2a">Strong headline and CTA</li>
+          <li data-i18n="s2b">Service/product information</li>
+          <li data-i18n="s2c">WhatsApp lead button</li>
+          <li data-i18n="s2d">Fast mobile layout</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Landing Page"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 3 -->
+      <div class="card">
+        <div class="icon">🍽️</div>
+        <h3 data-i18n="s3Title">Restaurant Website</h3>
+        <p data-i18n="s3Text">Show your menu, location and contact details online.</p>
+        <ul>
+          <li data-i18n="s3a">Digital menu</li>
+          <li data-i18n="s3b">Food categories</li>
+          <li data-i18n="s3c">Location/contact section</li>
+          <li data-i18n="s3d">WhatsApp order/inquiry</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Restaurant Website"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 4 -->
+      <div class="card">
+        <div class="icon">🏨</div>
+        <h3 data-i18n="s4Title">Hotel Website</h3>
+        <p data-i18n="s4Text">Present rooms, facilities, prices and booking contact.</p>
+        <ul>
+          <li data-i18n="s4a">Room showcase</li>
+          <li data-i18n="s4b">Facilities section</li>
+          <li data-i18n="s4c">Booking/inquiry form</li>
+          <li data-i18n="s4d">WhatsApp reservation inquiry</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Hotel Website"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 5 -->
+      <div class="card">
+        <div class="icon">🛒</div>
+        <h3 data-i18n="s5Title">Online Store</h3>
+        <p data-i18n="s5Text">A product-focused website for online selling.</p>
+        <ul>
+          <li data-i18n="s5a">Product cards</li>
+          <li data-i18n="s5b">Categories and prices</li>
+          <li data-i18n="s5c">Order/inquiry flow</li>
+          <li data-i18n="s5d">WhatsApp product orders</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Online Store"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 6 -->
+      <div class="card">
+        <div class="icon">💇</div>
+        <h3 data-i18n="s6Title">Salon Website</h3>
+        <p data-i18n="s6Text">Display beauty services, packages and contact options.</p>
+        <ul>
+          <li data-i18n="s6a">Services and packages</li>
+          <li data-i18n="s6b">Gallery section</li>
+          <li data-i18n="s6c">Appointment inquiry</li>
+          <li data-i18n="s6d">WhatsApp booking contact</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Salon Website"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 7 -->
+      <div class="card">
+        <div class="icon">🏢</div>
+        <h3 data-i18n="s7Title">Corporate Website</h3>
+        <p data-i18n="s7Text">Professional online presence for companies and organizations.</p>
+        <ul>
+          <li data-i18n="s7a">Company profile</li>
+          <li data-i18n="s7b">Services and projects</li>
+          <li data-i18n="s7c">Team/company information</li>
+          <li data-i18n="s7d">Professional contact page</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Corporate Website"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 8 -->
+      <div class="card">
+        <div class="icon">💬</div>
+        <h3 data-i18n="s8Title">WhatsApp Integration</h3>
+        <p data-i18n="s8Text">Connect website visitors directly to your WhatsApp.</p>
+        <ul>
+          <li data-i18n="s8a">Direct WhatsApp buttons</li>
+          <li data-i18n="s8b">Pre-filled messages</li>
+          <li data-i18n="s8c">Service-specific inquiries</li>
+          <li data-i18n="s8d">Floating WhatsApp button</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="WhatsApp Integration"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 9 -->
+      <div class="card">
+        <div class="icon">📱</div>
+        <h3 data-i18n="s9Title">Mobile-First Design</h3>
+        <p data-i18n="s9Text">Your website adjusts automatically to different screens.</p>
+        <ul>
+          <li data-i18n="s9a">Mobile phones</li>
+          <li data-i18n="s9b">Tablets</li>
+          <li data-i18n="s9c">Laptops</li>
+          <li data-i18n="s9d">Desktop screens</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Mobile-First Design"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 10 -->
+      <div class="card">
+        <div class="icon">🔎</div>
+        <h3 data-i18n="s10Title">Basic SEO</h3>
+        <p data-i18n="s10Text">Basic technical and content setup for search visibility.</p>
+        <ul>
+          <li data-i18n="s10a">SEO title</li>
+          <li data-i18n="s10b">Meta description</li>
+          <li data-i18n="s10c">Mobile-friendly structure</li>
+          <li data-i18n="s10d">Clean page structure</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Basic SEO"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 11 -->
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3 data-i18n="s11Title">Speed Optimization</h3>
+        <p data-i18n="s11Text">Improve the website structure for a faster experience.</p>
+        <ul>
+          <li data-i18n="s11a">Lightweight code</li>
+          <li data-i18n="s11b">Responsive layout</li>
+          <li data-i18n="s11c">Image optimization guidance</li>
+          <li data-i18n="s11d">Performance-focused design</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Speed Optimization"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+      <!-- 12 -->
+      <div class="card">
+        <div class="icon">🔧</div>
+        <h3 data-i18n="s12Title">Maintenance & Updates</h3>
+        <p data-i18n="s12Text">Keep your website information updated after launch.</p>
+        <ul>
+          <li data-i18n="s12a">Text updates</li>
+          <li data-i18n="s12b">Price/service updates</li>
+          <li data-i18n="s12c">New sections</li>
+          <li data-i18n="s12d">Design improvements</li>
+        </ul>
+        <a class="small-wa wa-service" data-service="Maintenance & Updates"
+           target="_blank">💬 Ask on WhatsApp</a>
+      </div>
+
+    </div>
+  </div>
 </section>
 
+<!-- BUSINESS TYPES -->
+<section>
+  <div class="container">
+
+    <div class="section-title">
+      <h2 data-i18n="typesTitle">Websites for Different Businesses</h2>
+      <p data-i18n="typesText">
+        Choose a business type and we can create a suitable website structure.
+      </p>
+    </div>
+
+    <div class="types-grid">
+
+      <div class="type">
+        <div>🍽️</div>
+        <span data-i18n="typeRestaurant">Restaurant</span>
+      </div>
+
+      <div class="type">
+        <div>🏨</div>
+        <span data-i18n="typeHotel">Hotel</span>
+      </div>
+
+      <div class="type">
+        <div>🏢</div>
+        <span data-i18n="typeCompany">Company</span>
+      </div>
+
+      <div class="type">
+        <div>🛒</div>
+        <span data-i18n="typeStore">Online Store</span>
+      </div>
+
+      <div class="type">
+        <div>💇</div>
+        <span data-i18n="typeSalon">Salon</span>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- PORTFOLIO -->
+<section id="work">
+  <div class="container">
 
-<section class="portfolio" id="work">
+    <div class="section-title">
+      <h2 data-i18n="workTitle">Our Work & Demos</h2>
+      <p data-i18n="workText">
+        Example website concepts for different business types.
+      </p>
+    </div>
 
-<div class="container">
+    <div class="portfolio-grid">
 
-<div class="section-head">
+      <div class="portfolio">
+        <div class="portfolio-top">🍽️</div>
+        <div class="portfolio-body">
+          <h3 data-i18n="p1Title">Restaurant Demo</h3>
+          <p data-i18n="p1Text">
+            Modern restaurant layout with menu and contact section.
+          </p>
+          <a href="restaurant.html" class="btn btn-primary"
+             data-i18n="viewDemo">
+            View Demo
+          </a>
+        </div>
+      </div>
 
-<h2 data-i18n="workTitle">
-Selected Website Concepts
-</h2>
+      <div class="portfolio">
+        <div class="portfolio-top">🏨</div>
+        <div class="portfolio-body">
+          <h3 data-i18n="p2Title">Hotel Website</h3>
+          <p data-i18n="p2Text">
+            Room, facilities, pricing and booking inquiry concept.
+          </p>
+          <a href="#contact" class="btn btn-primary"
+             data-i18n="requestDemo">
+            Request Demo
+          </a>
+        </div>
+      </div>
 
-<p data-i18n="workText">
-Examples of how different businesses can present themselves online.
-</p>
+      <div class="portfolio">
+        <div class="portfolio-top">🏢</div>
+        <div class="portfolio-body">
+          <h3 data-i18n="p3Title">Company Website</h3>
+          <p data-i18n="p3Text">
+            Professional company profile and services layout.
+          </p>
+          <a href="#contact" class="btn btn-primary"
+             data-i18n="requestDemo">
+            Request Demo
+          </a>
+        </div>
+      </div>
 
-</div>
+      <div class="portfolio">
+        <div class="portfolio-top">🛒</div>
+        <div class="portfolio-body">
+          <h3 data-i18n="p4Title">Online Store</h3>
+          <p data-i18n="p4Text">
+            Product cards, categories and WhatsApp order concept.
+          </p>
+          <a href="#contact" class="btn btn-primary"
+             data-i18n="requestDemo">
+            Request Demo
+          </a>
+        </div>
+      </div>
 
+      <div class="portfolio">
+        <div class="portfolio-top">💇</div>
+        <div class="portfolio-body">
+          <h3 data-i18n="p5Title">Salon Website</h3>
+          <p data-i18n="p5Text">
+            Services, packages, gallery and appointment concept.
+          </p>
+          <a href="#contact" class="btn btn-primary"
+             data-i18n="requestDemo">
+            Request Demo
+          </a>
+        </div>
+      </div>
 
-<div class="grid">
+      <div class="portfolio">
+        <div class="portfolio-top">📱</div>
+        <div class="portfolio-body">
+          <h3 data-i18n="p6Title">Mobile Business Site</h3>
+          <p data-i18n="p6Text">
+            Responsive business landing page for mobile visitors.
+          </p>
+          <a href="#contact" class="btn btn-primary"
+             data-i18n="requestDemo">
+            Request Demo
+          </a>
+        </div>
+      </div>
 
-
-<article class="card">
-
-<div class="project-img">
-🍽️ Restaurant
-</div>
-
-<div class="project-info">
-
-<h3 data-i18n="project1">
-Restaurant Website
-</h3>
-
-<p data-i18n="project1Text">
-Menu, location and WhatsApp ordering in one clean experience.
-</p>
-
-<a href="#contact" data-i18n="learnMore">
-Build something like this →
-</a>
-
-</div>
-
-</article>
-
-
-<article class="card">
-
-<div class="project-img two">
-🏨 Hotel
-</div>
-
-<div class="project-info">
-
-<h3 data-i18n="project2">
-Hotel Website
-</h3>
-
-<p data-i18n="project2Text">
-Rooms, prices, gallery and simple booking inquiries.
-</p>
-
-<a href="#contact" data-i18n="learnMore">
-Build something like this →
-</a>
-
-</div>
-
-</article>
-
-
-<article class="card">
-
-<div class="project-img three">
-🏢 Company
-</div>
-
-<div class="project-info">
-
-<h3 data-i18n="project3">
-Company Website
-</h3>
-
-<p data-i18n="project3Text">
-A polished home for your services, team and reputation.
-</p>
-
-<a href="#contact" data-i18n="learnMore">
-Build something like this →
-</a>
-
-</div>
-
-</article>
-
-
-<article class="card">
-
-<div class="project-img four">
-🛍️ Online Store
-</div>
-
-<div class="project-info">
-
-<h3 data-i18n="project4">
-Online Store
-</h3>
-
-<p data-i18n="project4Text">
-Products, categories and WhatsApp ordering for your customers.
-</p>
-
-<a href="#contact" data-i18n="learnMore">
-Build something like this →
-</a>
-
-</div>
-
-</article>
-
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
-
 
 <!-- ABOUT -->
-
 <section id="about">
+  <div class="container about-grid">
 
-<div class="container about">
+    <div>
+      <div class="section-title" style="text-align:left;margin-bottom:20px;">
+        <h2 data-i18n="aboutTitle">About Zamran Web Development</h2>
+      </div>
 
-<div class="about-box">
+      <p data-i18n="aboutText">
+        Zamran Web Development focuses on simple, professional and
+        mobile-friendly websites for businesses that want a clear online
+        presence.
+      </p>
 
-<strong>10+</strong>
+      <br>
 
-<p data-i18n="aboutStat">
-years of creative and technical experience
-</p>
+      <p data-i18n="aboutText2">
+        The goal is to make it easy for customers to understand your
+        business, view your services and contact you directly.
+      </p>
 
-</div>
+      <br>
 
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/923313247153?text=Hello%20Zamran%2C%20I%20want%20to%20know%20more%20about%20your%20web%20development%20service."
+         target="_blank"
+         data-i18n="talkToUs">
+        Talk to Us
+      </a>
+    </div>
 
-<div class="about-copy">
+    <div class="about-box">
+      <h3 data-i18n="focusTitle">Our Focus</h3>
 
-<div class="eyebrow">
-✦
-<span data-i18n="aboutEyebrow">
-Why choose Zamran
-</span>
-</div>
+      <div class="check" data-i18n="focus1">
+        Mobile-first websites
+      </div>
 
-<h2 data-i18n="aboutTitle">
-Design with purpose. Built for results.
-</h2>
+      <div class="check" data-i18n="focus2">
+        WhatsApp communication
+      </div>
 
-<p data-i18n="aboutText">
-Zamran Web Development helps entrepreneurs and growing businesses create a trustworthy online presence with modern design, responsive layouts and useful features.
-</p>
+      <div class="check" data-i18n="focus3">
+        Clear business information
+      </div>
 
+      <div class="check" data-i18n="focus4">
+        English, Urdu, Arabic and Pashto support
+      </div>
 
-<div class="checks">
+      <div class="check" data-i18n="focus5">
+        Pakistan, Saudi Arabia and UAE businesses
+      </div>
+    </div>
 
-<span data-i18n="check1">
-Clear communication
-</span>
-
-<span data-i18n="check2">
-Modern design
-</span>
-
-<span data-i18n="check3">
-Mobile responsive
-</span>
-
-<span data-i18n="check4">
-Fair pricing
-</span>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- PROCESS -->
+<section>
+  <div class="container">
+
+    <div class="section-title">
+      <h2 data-i18n="processTitle">How It Works</h2>
+      <p data-i18n="processText">
+        A simple process from your idea to your website.
+      </p>
+    </div>
+
+    <div class="process-grid">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3 data-i18n="step1Title">Share Details</h3>
+        <p data-i18n="step1Text">Tell us about your business.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3 data-i18n="step2Title">Choose Design</h3>
+        <p data-i18n="step2Text">Select the style and sections.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3 data-i18n="step3Title">Build</h3>
+        <p data-i18n="step3Text">We create the website.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3 data-i18n="step4Title">Review</h3>
+        <p data-i18n="step4Text">You review the information.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <h3 data-i18n="step5Title">Launch</h3>
+        <p data-i18n="step5Text">Your website is published.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- PRICING -->
+<section id="pricing">
+  <div class="container">
 
-<section class="pricing" id="pricing">
+    <div class="section-title">
+      <h2 data-i18n="pricingTitle">Pricing Packages</h2>
+      <p data-i18n="pricingText">
+        Starting prices. Final price depends on your project requirements.
+      </p>
+    </div>
 
-<div class="container">
+    <div class="pricing-grid">
 
-<div class="section-head">
+      <div class="price-card">
+        <h3 data-i18n="basicTitle">Starter</h3>
+        <div class="price">$50+</div>
 
-<h2 data-i18n="pricingTitle">
-Simple packages for every stage
-</h2>
+        <ul>
+          <li data-i18n="basic1">Professional landing page</li>
+          <li data-i18n="basic2">Mobile responsive</li>
+          <li data-i18n="basic3">WhatsApp button</li>
+          <li data-i18n="basic4">Basic SEO</li>
+          <li data-i18n="basic5">Contact section</li>
+        </ul>
 
-<p data-i18n="prici
+        <a class="btn btn-whatsapp"
+           href="https://wa.me/923313247153?text=Hello%20Zamran%2C%20I%20am%20interested%20in%20the%20Starter%20website%20package."
+           target="_blank"
+           data-i18n="choosePackage">
+          Choose Package
+        </a>
+      </div>
+
+      <div class="price-card featured">
+        <h3 data-i18n="businessTitle">Business</h3>
+        <div class="price">$100+</div>
+
+        <ul>
+          <li data-i18n="business1">Multi-section business website</li>
+          <li data-i18n="business2">Mobile responsive</li>
+          <li data-i18n="business3">WhatsApp integration</li>
+          <li data-i18n="business4">Services/portfolio sections</li>
+          <li data-i18n="business5">Basic SEO</li>
+          <li data-i18n="business6">Contact form</li>
+        </ul>
+
+        <a class="btn btn-whatsapp"
+           href="https://wa.me/923313247153?text=Hello%20Zamran%2C%20I%20am%20interested%20in%20the%20Business%20website%20package."
+           target="_blank"
+           data-i18n="choosePackage">
+          Choose Package
+        </a>
+      </div>
+
+      <div class="price-card">
+        <h3 data-i18n="customTitle">Custom</h3>
+        <div class="price" data-i18n="customPrice">Let's Talk</div>
+
+        <ul>
+          <li data-i18n="custom1">Restaurant websites</li>
+          <li data-i18n="custom2">Hotel websites</li>
+          <li data-i18n="custom3">Online stores</li>
+          <li data-i18n="custom4">Corporate websites</li>
+          <li data-i18n="custom5">Custom features</li>
+        </ul>
+
+        <a class="btn btn-whatsapp"
+           href="https://wa.me/923313247153?text=Hello%20Zamran%2C%20I%20need%20a%20custom%20website."
+           target="_blank"
+           data-i18n="getQuote">
+          Get a Quote
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+
+    <div class="section-title">
+      <h2 data-i18n="contactTitle">Start Your Project</h2>
+      <p data-i18n="contactText">
+        Send your project details. The form will prepare a WhatsApp message
+        for Zamran Web Development.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- CONTACT INFO -->
+      <div class="contact-box">
+
+        <h2 data-i18n="contactInfoTitle">Contact Information</h2>
+
+        <div class="contact-item">
+          <strong>WhatsApp</strong>
+          <a href="https://wa.me/923313247153"
+             target="_blank">
+            0331 3247153
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <strong data-i18n="locationLabel">Target Regions</strong>
+          <span>Pakistan • Saudi Arabia • UAE</span>
+        </div>
+
+        <div class="contact-item">
+          <strong data-i18n="languagesLabel">Languages</strong>
+          <span>English • اردو • العربية • پښتو</span>
+        </div>
+
+        <br>
+
+        <a class="btn btn-whatsapp"
+           href="https://wa.me/923313247153?text=Hello%20Zamran%20Web%20Development%20%F0%9F%91%8B"
+           target="_blank"
+           data-i18n="directWhatsApp">
+          Open WhatsApp
+        </a>
+
+      </div>
+
+      <!-- PROJECT FORM -->
+      <form onsubmit="sendProjectToWhatsApp(event)">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="name" data-i18n="formName">Your Name *</label>
+            <input id="name" type="text" required
+                   placeholder="Your name">
+          </div>
+
+          <div class="form-group">
+            <label for="businessName" data-i18n="formBusiness">
+              Business Name *
+            </label>
+            <input id="businessName" type="text" required
+                   placeholder="Business name">
+          </div>
+
+          <div class="form-group">
+            <label for="phone" data-i18n="formPhone">
+              Phone / WhatsApp *
+            </label>
+            <input id="phone" type="tel" required
+                   placeholder="+966 / +971 / +92">
+          </div>
+
+          <div class="form-group">
+            <label for="email" data-i18n="formEmail">
+              Email
+            </label>
+            <input id="email" type="email"
+                   placeholder="Email address">
+          </div>
+
+          <div class="form-group">
+            <label for="service" data-i18n="formService">
+              Required Service *
+            </label>
+
+            <select id="service" required>
+              <option value="">Select service</option>
+              <option>Business Website</option>
+              <option>Landing Page</option>
+              <option>Restaurant Website</option>
+              <option>Hotel Website</option>
+              <option>Online Store</option>
+              <option>Salon Website</option>
+              <option>Corporate Website</option>
+              <option>WhatsApp Integration</option>
+              <option>SEO</option>
+              <option>Maintenance</option>
+              <option>Custom Project</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="businessType" data-i18n="formType">
+              Business Type *
+            </label>
+
+            <select id="businessType" required>
+              <option value="">Select type</option>
+              <option>Restaurant</option>
+              <option>Hotel</option>
+              <option>Company</option>
+              <option>Online Store</option>
+              <option>Salon</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget" data-i18n="formBudget">
+              Budget
+            </label>
+
+            <select id="budget">
+              <option value="">Select budget</option>
+              <option>$50 - $100</option>
+              <option>$100 - $250</option>
+              <option>$250 - $500</option>
+              <option>$500+</option>
+              <option>Not decided</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="language" data-i18n="formLanguage">
+              Preferred Language
+            </label>
+
+            <select id="language">
+              <option>English</option>
+              <option>Urdu</option>
+              <option>Arabic</option>
+              <option>Pashto</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="message" data-i18n="formDetails">
+              Project Details *
+            </label>
+
+            <textarea id="message" required
+              placeholder="Tell us what you need..."></textarea>
+          </div>
+
+          <div class="form-group full">
+
+            <button class="btn btn-whatsapp"
+                    type="submit"
+                    style="width:100%;font-size:16px;"
+                    data-i18n="sendWhatsApp">
+              💬 Send Project Details to WhatsApp
+            </button>
+
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="container">
+
+    <div class="cta">
+
+      <h2 data-i18n="ctaTitle">
+        Ready to build your website?
+      </h2>
+
+      <p data-i18n="ctaText">
+        Send your business details on WhatsApp and let's discuss your project.
+      </p>
+
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/923313247153?text=Hello%20Zamran%20Web%20Development%2C%20I%20want%20to%20build%20a%20website."
+         target="_blank"
+         data-i18n="ctaButton">
+        Start WhatsApp Chat
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>Zamran Web Development</h3>
+        <p data-i18n="footerText">
+          Professional websites and digital solutions for businesses.
+        </p>
+      </div>
+
+      <div>
+        <h3 data-i18n="footerServices">Services</h3>
+        <ul>
+          <li>Business Websites</li>
+          <li>Restaurant Websites</li>
+          <li>Hotel Websites</li>
+          <li>Online Stores</li>
+          <li>WhatsApp Integration</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 data-i18n="footerContact">Contact</h3>
+        <ul>
+          <li>Pakistan</li>
+          <li>Saudi Arabia</li>
+          <li>UAE</li>
+          <li>
+            <a href="https://wa.me/923313247153"
+               target="_blank">
+              WhatsApp: 0331 3247153
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> Zamran Web Development.
+      <span data-i18n="rights">All rights reserved.</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="floating-wa"
+   href="https://wa.me/923313247153?text=Hello%20Zamran%20Web%20Development%20%F0%9F%91%8B"
+   target="_blank"
+   aria-label="WhatsApp">
+  💬
+</a>
+
+<script>
+
+  /* =========================
+     WHATSAPP NUMBER
+     ========================= */
+
+  const WHATSAPP_NUMBER = "923313247153";
+
+
+  /* =========================
+     SEND FORM TO WHATSAPP
+     ========================= */
+
+  function sendProjectToWhatsApp(event) {
+
+    event.preventDefault();
+
+    const name =
+      document.getElementById("name").value.trim();
+
+    const business =
+      document.getElementById("businessName").value.trim();
+
+    const phone =
+      document.getElementById("phone").value.trim();
+
+    const email =
+      document.getElementById("email").value.trim();
+
+    const service =
+      document.getElementById("service").value;
+
+    const businessType =
+      document.getElementById("businessType").value;
+
+    const budget =
+      document.getElementById("budget").value;
+
+    const language =
+      document.getElementById("language").value;
+
+    const message =
+      document.getElementById("message").value.trim();
+
+
+    const whatsappMessage =
+`Hello Zamran Web Development 👋
+
+I want to discuss a website project.
+
+👤 Name:
+${name}
+
+🏢 Business Name:
+${business}
+
+📱 Phone / WhatsApp:
+${phone}
+
+📧 Email:
+${email || "Not provided"}
+
+🛠 Required Service:
+${service}
+
+🏷 Business Type:
+${businessType}
+
+💰 Budget:
+${budget || "Not decided"}
+
+🌐 Preferred Language:
+${language}
+
+📝 Project Details:
+${message}
+
+Please contact me with the next steps.`;
+
+    const url =
+      "https://wa.me/" +
+      WHATSAPP_NUMBER +
+      "?text=" +
+      encodeURIComponent(whatsappMessage);
+
+    window.open(url, "_blank");
+  }
+
+
+  /* =========================
+     SERVICE WHATSAPP BUTTONS
+     ========================= */
+
+  document.querySelectorAll(".wa-service").forEach(function(button) {
+
+    const service =
+      button.getAttribute("data-service");
+
+    const message =
+      `Hello Zamran Web Development 👋
+
+I am interested in your "${service}" service.
+
+Please send me the details and price.`;
+
+    button.href =
+      "https://wa.me/" +
+      WHATSAPP_NUMBER +
+      "?text=" +
+      encodeURIComponent(message);
+
+  });
+
+
+  /* =========================
+     MOBILE MENU
+     ========================= */
+
+  function toggleMenu() {
+
+    document
+      .getElementById("navLinks")
+      .classList.toggle("active");
+
+  }
+
+
+  document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link) {
+
+      link.addEventListener("click", function() {
+
+        document
+          .getElementById("navLinks")
+          .classList.remove("active");
+
+      });
+
+    });
+
+
+  /* =========================
+     DARK MODE
+     ========================= */
+
+  function toggleDarkMode() {
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+      "zamranDarkMode",
+      document.body.classList.contains("dark")
+    );
+
+  }
+
+
+  if (
+    localStorage.getItem("zamranDarkMode") === "true"
+  ) {
+    document.body.classList.add("dark");
+  }
+
+
+  /* =========================
+     YEAR
+     ========================= */
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+  /* =========================
+     TRANSLATIONS
+     ========================= */
+
+  const translations = {
+
+    en: {
+
+      topText:
+        "Professional digital solutions for businesses",
+
+      navServices: "Services",
+      navWork: "Our Work",
+      navAbout: "About",
+      navPricing: "Pricing",
+      navContact: "Contact",
+
+      badge:
+        "Pakistan • Saudi Arabia • UAE",
+
+      heroTitle:
+        "Build a stronger online presence.",
+
+      heroText:
+        "Professional, mobile-friendly websites for restaurants, hotels, companies, salons, online stores and growing businesses.",
+
+      startWhatsApp:
+        "Start on WhatsApp",
+
+      viewWork:
+        "View Work",
+
+      whyTitle:
+        "Why your business needs a website",
+
+      why1:
+        "Customers can find your business online.",
+
+      why2:
+        "Your services and products can be shown clearly.",
+
+      why3:
+        "Customers can contact you directly on WhatsApp.",
+
+      why4:
+        "Your website works on mobile, tablet and desktop.",
+
+      askNow:
+        "Ask on WhatsApp",
+
+      servicesTitle:
+        "Our Services",
+
+      servicesText:
+        "Complete website solutions from design to launch and updates.",
+
+      s1Title:"Business Website",
+      s1Text:"A professional website for your company or business.",
+      s1a:"Home, About and Services pages",
+      s1b:"Contact and WhatsApp buttons",
+      s1c:"Mobile responsive design",
+      s1d:"Basic SEO setup",
+
+      s2Title:"Landing Page",
+      s2Text:"A focused page for a product, campaign or service.",
+      s2a:"Strong headline and CTA",
+      s2b:"Service/product information",
+      s2c:"WhatsApp lead button",
+      s2d:"Fast mobile layout",
+
+      s3Title:"Restaurant Website",
+      s3Text:"Show your menu, location and contact details online.",
+      s3a:"Digital menu",
+      s3b:"Food categories",
+      s3c:"Location/contact section",
+      s3d:"WhatsApp order/inquiry",
+
+      s4Title:"Hotel Website",
+      s4Text:"Present rooms, facilities, prices and booking contact.",
+      s4a:"Room showcase",
+      s4b:"Facilities section",
+      s4c:"Booking/inquiry form",
+      s4d:"WhatsApp reservation inquiry",
+
+      s5Title:"Online Store",
+      s5Text:"A product-focused website for online selling.",
+      s5a:"Product cards",
+      s5b:"Categories and prices",
+      s5c:"Order/inquiry flow",
+      s5d:"WhatsApp product orders",
+
+      s6Title:"Salon Website",
+      s6Text:"Display beauty services, packages and contact options.",
+      s6a:"Services and packages",
+      s6b:"Gallery section",
+      s6c:"Appointment inquiry",
+      s6d:"WhatsApp booking contact",
+
+      s7Title:"Corporate Website",
+      s7Text:"Professional online presence for companies and organizations.",
+      s7a:"Company profile",
+      s7b:"Services and projects",
+      s7c:"Team/company information",
+      s7d:"Professional contact page",
+
+      s8Title:"WhatsApp Integration",
+      s8Text:"Connect website visitors directly to your WhatsApp.",
+      s8a:"Direct WhatsApp buttons",
+      s8b:"Pre-filled messages",
+      s8c:"Service-specific inquiries",
+      s8d:"Floating WhatsApp button",
+
+      s9Title:"Mobile-First Design",
+      s9Text:"Your website adjusts automatically to different screens.",
+      s9a:"Mobile phones",
+      s9b:"Tablets",
+      s9c:"Laptops",
+      s9d:"Desktop screens",
+
+      s10Title:"Basic SEO",
+      s10Text:"Basic technical and content setup for search visibility.",
+      s10a:"SEO title",
+      s10b:"Meta description",
+      s10c:"Mobile-friendly structure",
+      s10d:"Clean page structure",
+
+      s11Title:"Speed Optimization",
+      s11Text:"Improve the website structure for a faster experience.",
+      s11a:"Lightweight code",
+      s11b:"Responsive layout",
+      s11c:"Image optimization guidance",
+      s11d:"Performance-focused design",
+
+      s12Title:"Maintenance & Updates",
+      s12Text:"Keep your website information updated after launch.",
+      s12a:"Text updates",
+      s12b:"Price/service updates",
+      s12c:"New sections",
+      s12d:"Design improvements",
+
+      typesTitle:
+        "Websites for Different Businesses",
+
+      typesText:
+        "Choose a business type and we can create a suitable website structure.",
+
+      typeRestaurant:"Restaurant",
+      typeHotel:"Hotel",
+      typeCompany:"Company",
+      typeStore:"Online Store",
+      typeSalon:"Salon",
+
+      workTitle:"Our Work & Demos",
+
+      workText:
+        "Example website concepts for different business types.",
+
+      p1Title:"Restaurant Demo",
+      p1Text:"Modern restaurant layout with menu and contact section.",
+
+      p2Title:"Hotel Website",
+      p2Text:"Room, facilities, pricing and booking inquiry concept.",
+
+      p3Title:"Company Website",
+      p3Text:"Professional company profile and services layout.",
+
+      p4Title:"Online Store",
+      p4Text:"Product cards, categories and WhatsApp order concept.",
+
+      p5Title:"Salon Website",
+      p5Text:"Services, packages, gallery and appointment concept.",
+
+      p6Title:"Mobile Business Site",
+      p6Text:"Responsive business landing page for mobile visitors.",
+
+      viewDemo:"View Demo",
+      requestDemo:"Request Demo",
+
+      aboutTitle:
+        "About Zamran Web Development",
+
+      aboutText:
+        "Zamran Web Development focuses on simple, professional and mobile-friendly websites for businesses that want a clear online presence.",
+
+      aboutText2:
+        "The goal is to make it easy for customers to understand your business, view your services and contact you directly.",
+
+      talkToUs:
+        "Talk to Us",
+
+      focusTitle:
+        "Our Focus",
+
+      focus1:"Mobile-first websites",
+      focus2:"WhatsApp communication",
+      focus3:"Clear business information",
+      focus4:"English, Urdu, Arabic and Pashto support",
+      focus5:"Pakistan, Saudi Arabia and UAE businesses",
+
+      processTitle:"How It Works",
+
+      processText:
+        "A simple process from your idea to your website.",
+
+      step1Title:"Share Details",
+      step1Text:"Tell us about your business.",
+
+      step2Title:"Choose Design",
+      step2Text:"Select the style and sections.",
+
+      step3Title:"Build",
+      step3Text:"We create the website.",
+
+      step4Title:"Review",
+      step4Text:"You review the information.",
+
+      step5Title:"Launch",
+      step5Text:"Your website is published.",
+
+      pricingTitle:"Pricing Packages",
+
+      pricingText:
+        "Starting prices. Final price depends on your project requirements.",
+
+      basicTitle:"Starter",
+      basic1:"Professional landing page",
+      basic2:"Mobile responsive",
+      basic3:"WhatsApp button",
+      basic4:"Basic SEO",
+      basic5:"Contact section",
+
+      businessTitle:"Business",
+      business1:"Multi-section business website",
+      business2:"Mobile responsive",
+      business3:"WhatsApp integration",
+      business4:"Services/portfolio sections",
+      business5:"Basic SEO",
+      business6:"Contact form",
+
+      customTitle:"Custom",
+      customPrice:"Let's Talk",
+      custom1:"Restaurant websites",
+      custom2:"Hotel websites",
+      custom3:"Online stores",
+      custom4:"Corporate websites",
+      custom5:"Custom features",
+
+      choosePackage:"Choose Package",
+      getQuote:"Get a Quote",
+
+      contactTitle:"Start Your Project",
+
+      contactText:
+        "Send your project details. The form will prepare a WhatsApp message for Zamran Web Development.",
+
+      contactInfoTitle:"Contact Information",
+
+      locationLabel:"Target Regions",
+      languagesLabel:"Languages",
+      directWhatsApp:"Open WhatsApp",
+
+      formName:"Your Name *",
+      formBusiness:"Business Name *",
+      formPhone:"Phone / WhatsApp *",
+      formEmail:"Email",
+      formService:"Required Service *",
+      formType:"Business Type *",
+      formBudget:"Budget",
+      formLanguage:"Preferred Language",
+      formDetails:"Project Details *",
+      sendWhatsApp:"💬 Send Project Details to WhatsApp",
+
+      ctaTitle:
+        "Ready to build your website?",
+
+      ctaText:
+        "Send your business details on WhatsApp and let's discuss your project.",
+
+      ctaButton:
+        "Start WhatsApp Chat",
+
+      footerText:
+        "Professional websites and digital solutions for businesses.",
+
+      footerServices:"Services",
+      footerContact:"Contact",
+      rights:"All rights reserved."
+    },
+
+
+    ur: {
+
+      topText:"کاروبار کے لیے پروفیشنل ڈیجیٹل حل",
+
+      navServices:"سروسز",
+      navWork:"ہمارا کام",
+      navAbout:"ہمارے بارے میں",
+      navPricing:"قیمت",
+      navContact:"رابطہ",
+
+      badge:"پاکستان • سعودی عرب • متحدہ عرب امارات",
+
+      heroTitle:"اپنے کاروبار کی آن لائن موجودگی بہتر بنائیں۔",
+
+      heroText:
+        "ریستوران، ہوٹل، کمپنی، سیلون، آن لائن اسٹور اور دوسرے کاروبار کے لیے پروفیشنل اور موبائل فرینڈلی ویب سائٹس۔",
+
+      startWhatsApp:"WhatsApp پر شروع کریں",
+      viewWork:"کام دیکھیں",
+
+      whyTitle:"آپ کے کاروبار کو ویب سائٹ کیوں چاہیے",
+
+      why1:"گاہک آپ کا کاروبار آن لائن تلاش کر سکتے ہیں۔",
+      why2:"آپ اپنی سروسز اور پراڈکٹس واضح طور پر دکھا سکتے ہیں۔",
+      why3:"گاہک براہ راست WhatsApp پر رابطہ کر سکتے ہیں۔",
+      why4:"ویب سائٹ موبائل، ٹیبلٹ اور کمپیوٹر پر خود ایڈجسٹ ہوتی ہے۔",
+
+      askNow:"WhatsApp پر پوچھیں",
+
+      servicesTitle:"ہماری سروسز",
+      servicesText:"ڈیزائن سے لے کر لانچ اور اپڈیٹس تک مکمل ویب سائٹ حل۔",
+
+      s1Title:"Business Website",
+      s1Text:"کمپنی یا کاروبار کے لیے پروفیشنل ویب سائٹ۔",
+      s1a:"Home، About اور Services صفحات",
+      s1b:"Contact اور WhatsApp بٹن",
+      s1c:"موبائل responsive design",
+      s1d:"Basic SEO",
+
+      s2Title:"Landing Page",
+      s2Text:"پراڈکٹ، سروس یا campaign کے لیے focused page۔",
+      s2a:"مضبوط headline اور CTA",
+      s2b:"Service/product information",
+      s2c:"WhatsApp lead button",
+      s2d:"موبائل فرینڈلی layout",
+
+      s3Title:"Restaurant Website",
+      s3Text:"آن لائن menu، location اور contact details۔",
+      s3a:"Digital menu",
+      s3b:"Food categories",
+      s3c:"Location/contact section",
+      s3d:"WhatsApp order/inquiry",
+
+      s4Title:"Hotel Website",
+      s4Text:"Rooms، facilities، prices اور booking contact دکھائیں۔",
+      s4a:"Room showcase",
+      s4b:"Facilities section",
+      s4c:"Booking/inquiry form",
+      s4d:"WhatsApp reservation inquiry",
+
+      s5Title:"Online Store",
+      s5Text:"آن لائن فروخت کے لیے product-focused website۔",
+      s5a:"Product cards",
+      s5b:"Categories اور prices",
+      s5c:"Order/inquiry flow",
+      s5d:"WhatsApp product orders",
+
+      s6Title:"Salon Website",
+      s6Text:"Beauty services، packages اور contact options۔",
+      s6a:"Services اور packages",
+      s6b:"Gallery section",
+      s6c:"Appointment inquiry",
+      s6d:"WhatsApp booking",
+
+      s7Title:"Corporate Website",
+      s7Text:"کمپنی اور ادارے کے لیے پروفیشنل آن لائن موجودگی۔",
+      s7a:"Company profile",
+      s7b:"Services اور projects",
+      s7c:"Company information",
+      s7d:"Professional contact page",
+
+      s8Title:"WhatsApp Integration",
+      s8Text:"ویب سائٹ کے visitors کو براہ راست WhatsApp سے جوڑیں۔",
+      s8a:"Direct WhatsApp buttons",
+      s8b:"Pre-filled messages",
+      s8c:"Service-specific inquiries",
+      s8d:"Floating WhatsApp button",
+
+      s9Title:"Mobile-First Design",
+      s9Text:"ویب سائٹ مختلف screens کے مطابق خود adjust ہوتی ہے۔",
+      s9a:"Mobile phones",
+      s9b:"Tablets",
+      s9c:"Laptops",
+      s9d:"Desktop screens",
+
+      s10Title:"Basic SEO",
+      s10Text:"Search visibility کے لیے basic SEO setup۔",
+      s10a:"SEO title",
+      s10b:"Meta description",
+      s10c:"Mobile-friendly structure",
+      s10d:"Clean page structure",
+
+      s11Title:"Speed Optimization",
+      s11Text:"ویب سائٹ کو بہتر اور ہلکا بنانے کی کوشش۔",
+      s11a:"Lightweight code",
+      s11b:"Responsive layout",
+      s11c:"Image optimization guidance",
+      s11d:"Performance-focused design",
+
+      s12Title:"Maintenance & Updates",
+      s12Text:"لانچ کے بعد ویب سائٹ کی معلومات update کرنا۔",
+      s12a:"Text updates",
+      s12b:"Price/service updates",
+      s12c:"New sections",
+      s12d:"Design improvements",
+
+      typesTitle:"مختلف کاروبار کے لیے ویب سائٹس",
+      typesText:"اپنے کاروبار کی قسم منتخب کریں۔",
+
+      typeRestaurant:"ریستوران",
+      typeHotel:"ہوٹل",
+      typeCompany:"کمپنی",
+      typeStore:"آن لائن اسٹور",
+      typeSalon:"سیلون",
+
+      workTitle:"ہمارا کام اور Demos",
+      workText:"مختلف کاروبار کے لیے ویب سائٹ کے نمونے۔",
+
+      p1Title:"Restaurant Demo",
+      p1Text:"Modern restaurant layout with menu and contact section.",
+
+      p2Title:"Hotel Website",
+      p2Text:"Room، facilities، pricing اور booking concept۔",
+
+      p3Title:"Company Website",
+      p3Text:"Professional company profile اور services layout۔",
+
+      p4Title:"Online Store",
+      p4Text:"Products، categories اور WhatsApp order concept۔",
+
+      p5Title:"Salon Website",
+      p5Text:"Services، packages، gallery اور appointment concept۔",
+
+      p6Title:"Mobile Business Site",
+      p6Text:"Mobile visitors کے لیے responsive business website۔",
+
+      viewDemo:"Demo دیکھیں",
+      requestDemo:"Demo مانگیں",
+
+      aboutTitle:"Zamran Web Development کے بارے میں",
+
+      aboutText:
+        "Zamran Web Development کاروبار کے لیے سادہ، پروفیشنل اور موبائل فرینڈلی ویب سائٹس بنانے پر توجہ دیتا ہے۔",
+
+      aboutText2:
+        "مقصد یہ ہے کہ گاہک آپ کے کاروبار کو آسانی سے سمجھیں، سروسز دیکھیں اور براہ راست رابطہ کریں۔",
+
+      talkToUs:"ہم سے رابطہ کریں",
+
+      focusTitle:"ہماری ترجیحات",
+
+      focus1:"Mobile-first websites",
+      focus2:"WhatsApp communication",
+      focus3:"واضح کاروباری معلومات",
+      focus4:"English، Urdu، Arabic اور Pashto support",
+      focus5:"پاکستان، سعودی عرب اور UAE کے کاروبار",
+
+      processTitle:"کام کیسے ہوتا ہے؟",
+      processText:"آپ کے idea سے website تک آسان process۔",
+
+      step1Title:"Details بھیجیں",
+      step1Text:"اپنے کاروبار کے بارے میں بتائیں۔",
+
+      step2Title:"Design منتخب کریں",
+      step2Text:"Style اور sections منتخب کریں۔",
+
+      step3Title:"Build",
+      step3Text:"ہم ویب سائٹ بناتے ہیں۔",
+
+      step4Title:"Review",
+      step4Text:"آپ معلومات check کرتے ہیں۔",
+
+      step5Title:"Launch",
+      step5Text:"ویب سائٹ publish ہو جاتی ہے۔",
+
+      pricingTitle:"Pricing Packages",
+      pricingText:"Starting prices؛ final price project پر depend کرتی ہے۔",
+
+      basicTitle:"Starter",
+      basic1:"Professional landing page",
+      basic2:"Mobile responsive",
+      basic3:"WhatsApp button",
+      basic4:"Basic SEO",
+      basic5:"Contact section",
+
+      businessTitle:"Business",
+      business1:"Multi-section business website",
+      business2:"Mobile responsive",
+      business3:"WhatsApp integration",
+      business4:"Services/portfolio sections",
+      business5:"Basic SEO",
+      business6:"Contact form",
+
+      customTitle:"Custom",
+      customPrice:"بات کریں",
+      custom1:"Restaurant websites",
+      custom2:"Hotel websites",
+      custom3:"Online stores",
+      custom4:"Corporate websites",
+      custom5:"Custom features",
+
+      choosePackage:"Package منتخب کریں",
+      getQuote:"Quote لیں",
+
+      contactTitle:"اپنا Project شروع کریں",
+
+      contactText:
+        "اپنے project کی details بھیجیں۔ Form WhatsApp message تیار کرے گا۔",
+
+      contactInfoTitle:"Contact Information",
+
+      locationLabel:"Target Regions",
+      languagesLabel:"Languages",
+      directWhatsApp:"WhatsApp کھولیں",
+
+      formName:"آپ کا نام *",
+      formBusiness:"Business Name *",
+      formPhone:"Phone / WhatsApp *",
+      formEmail:"Email",
+      formService:"Required Service *",
+      formType:"Business Type *",
+      formBudget:"Budget",
+      formLanguage:"Preferred Language",
+      formDetails:"Project Details *",
+      sendWhatsApp:"💬 Project Details WhatsApp پر بھیجیں",
+
+      ctaTitle:"کیا آپ اپنی ویب سائٹ بنوانا چاہتے ہیں؟",
+      ctaText:"اپنے کاروبار کی details WhatsApp پر بھیجیں۔",
+      ctaButton:"WhatsApp Chat شروع کریں",
+
+      footerText:"کاروبار کے لیے پروفیشنل ویب سائٹس اور ڈیجیٹل حل۔",
+      footerServices:"Services",
+      footerContact:"Contact",
+      rights:"تمام حقوق محفوظ ہیں۔"
+    },
+
+
+    ar: {
+
+      topText:"حلول رقمية احترافية للشركات",
+
+      navServices:"الخدمات",
+      navWork:"أعمالنا",
+      navAbout:"من نحن",
+      navPricing:"الأسعار",
+      navContact:"اتصل بنا",
+
+      badge:"باكستان • السعودية • الإمارات",
+
+      heroTitle:"ابنِ حضورًا أقوى على الإنترنت.",
+
+      heroText:
+        "مواقع احترافية ومتوافقة مع الهاتف للمطاعم والفنادق والشركات والصالونات والمتاجر الإلكترونية.",
+
+      startWhatsApp:"ابدأ عبر WhatsApp",
+      viewWork:"شاهد الأعمال",
+
+      whyTitle:"لماذا يحتاج نشاطك التجاري إلى موقع؟",
+
+      why1:"يمكن للعملاء العثور على نشاطك عبر الإنترنت.",
+      why2:"يمكنك عرض خدماتك ومنتجاتك بوضوح.",
+      why3:"يمكن للعملاء التواصل معك مباشرة عبر WhatsApp.",
+      why4:"يعمل الموقع على الهاتف والكمبيوتر والتابلت.",
+
+      askNow:"اسأل عبر WhatsApp",
+
+      servicesTitle:"خدماتنا",
+      servicesText:"حلول مواقع كاملة من التصميم إلى الإطلاق والتحديثات.",
+
+      s1Title:"موقع أعمال",
+      s1Text:"موقع احترافي لشركتك أو نشاطك التجاري.",
+      s1a:"صفحات الرئيسية والخدمات",
+      s1b:"أزرار الاتصال وWhatsApp",
+      s1c:"تصميم متوافق مع الهاتف",
+      s1d:"إعداد SEO أساسي",
+
+      s2Title:"Landing Page",
+      s2Text:"صفحة مركزة لمنتج أو خدمة أو حملة.",
+      s2a:"عنوان واضح وCTA",
+      s2b:"معلومات المنتج أو الخدمة",
+      s2c:"زر WhatsApp",
+      s2d:"تصميم سريع للهاتف",
+
+      s3Title:"موقع مطعم",
+      s3Text:"عرض القائمة والموقع وبيانات الاتصال.",
+      s3a:"قائمة رقمية",
+      s3b:"تصنيفات الطعام",
+      s3c:"قسم الموقع والاتصال",
+      s3d:"طلب أو استفسار عبر WhatsApp",
+
+      s4Title:"موقع فندق",
+      s4Text:"عرض الغرف والمرافق والأسعار وطلبات الحجز.",
+      s4a:"عرض الغرف",
+      s4b:"المرافق",
+      s4c:"نموذج حجز واستفسار",
+      s4d:"استفسار حجز عبر WhatsApp",
+
+      s5Title:"متجر إلكتروني",
+      s5Text:"موقع لعرض وبيع المنتجات.",
+      s5a:"بطاقات المنتجات",
+      s5b:"التصنيفات والأسعار",
+      s5c:"نظام طلب واستفسار",
+      s5d:"طلبات المنتجات عبر WhatsApp",
+
+      s6Title:"موقع صالون",
+      s6Text:"عرض خدمات الصالون والباقات وطرق الاتصال.",
+      s6a:"الخدمات والباقات",
+      s6b:"معرض الصور",
+      s6c:"استفسار موعد",
+      s6d:"حجز عبر WhatsApp",
+
+      s7Title:"موقع شركة",
+      s7Text:"حضور احترافي للشركات والمؤسسات.",
+      s7a:"نبذة عن الشركة",
+      s7b:"الخدمات والمشاريع",
+      s7c:"معلومات الشركة",
+      s7d:"صفحة اتصال احترافية",
+
+      s8Title:"دمج WhatsApp",
+      s8Text:"ربط زوار الموقع مباشرة مع WhatsApp.",
+      s8a:"أزرار WhatsApp",
+      s8b:"رسائل جاهزة",
+      s8c:"استفسارات حسب الخدمة",
+      s8d:"زر WhatsApp عائم",
+
+      s9Title:"تصميم Mobile-First",
+      s9Text:"الموقع يتكيف تلقائيًا مع أحجام الشاشات.",
+      s9a:"الهواتف",
+      s9b:"الأجهزة اللوحية",
+      s9c:"أجهزة اللابتوب",
+      s9d:"أجهزة الكمبيوتر",
+
+      s10Title:"SEO أساسي",
+      s10Text:"إعداد أساسي لتحسين الظهور في البحث.",
+      s10a:"عنوان SEO",
+      s10b:"وصف Meta",
+      s10c:"هيكل متوافق مع الهاتف",
+      s10d:"هيكل صفحات منظم",
+
+      s11Title:"تحسين السرعة",
+      s11Text:"تحسين بنية الموقع لتجربة أسرع.",
+      s11a:"كود خفيف",
+      s11b:"تصميم متجاوب",
+      s11c:"إرشادات تحسين الصور",
+      s11d:"تصميم يركز على الأداء",
+
+      s12Title:"الصيانة والتحديثات",
+      s12Text:"تحديث معلومات الموقع بعد الإطلاق.",
+      s12a:"تحديث النصوص",
+      s12b:"تحديث الأسعار والخدمات",
+      s12c:"إضافة أقسام جديدة",
+      s12d:"تحسين التصميم",
+
+      typesTitle:"مواقع لمختلف الأنشطة",
+      typesText:"اختر نوع النشاط وسننشئ هيكلًا مناسبًا.",
+
+      typeRestaurant:"مطعم",
+      typeHotel:"فندق",
+      typeCompany:"شركة",
+      typeStore:"متجر إلكتروني",
+      typeSalon:"صالون",
+
+      workTitle:"أعمالنا والعروض",
+      workText:"نماذج لمواقع لأنشطة مختلفة.",
+
+      p1Title:"نموذج مطعم",
+      p1Text:"تصميم مطعم حديث مع قائمة وقسم اتصال.",
+
+      p2Title:"موقع فندق",
+      p2Text:"الغرف والمرافق والأسعار واستفسار الحجز.",
+
+      p3Title:"موقع شركة",
+      p3Text:"نبذة احترافية عن الشركة وخدماتها.",
+
+      p4Title:"متجر إلكتروني",
+      p4Text:"منتجات وتصنيفات وطلبات عبر WhatsApp.",
+
+      p5Title:"موقع صالون",
+      p5Text:"الخدمات والباقات والمعرض والمواعيد.",
+
+      p6Title:"موقع أعمال للهاتف",
+      p6Text:"صفحة أعمال متجاوبة لزوار الهاتف.",
+
+      viewDemo:"شاهد النموذج",
+      requestDemo:"اطلب نموذجًا",
+
+      aboutTitle:"عن Zamran Web Development",
+
+      aboutText:
+        "نركز على إنشاء مواقع بسيطة واحترافية ومتوافقة مع الهاتف للشركات التي تريد حضورًا واضحًا على الإنترنت.",
+
+      aboutText2:
+        "الهدف هو تسهيل فهم العملاء لنشاطك وخدماتك والتواصل معك مباشرة.",
+
+      talkToUs:"تحدث معنا",
+
+      focusTitle:"تركيزنا",
+
+      focus1:"مواقع Mobile-First",
+      focus2:"التواصل عبر WhatsApp",
+      focus3:"معلومات تجارية واضحة",
+      focus4:"دعم الإنجليزية والأردية والعربية والبشتو",
+      focus5:"شركات باكستان والسعودية والإمارات",
+
+      processTitle:"كيف نعمل؟",
+      processText:"عملية بسيطة من فكرتك إلى موقعك.",
+
+      step1Title:"أرسل التفاصيل",
+      step1Text:"أخبرنا عن نشاطك.",
+
+      step2Title:"اختر التصميم",
+      step2Text:"اختر الشكل والأقسام.",
+
+      step3Title:"التطوير",
+      step3Text:"نقوم ببناء الموقع.",
+
+      step4Title:"المراجعة",
+      step4Text:"تراجع المعلومات.",
+
+      step5Title:"الإطلاق",
+      step5Text:"يتم نشر الموقع.",
+
+      pricingTitle:"الباقات والأسعار",
+      pricingText:"أسعار تبدأ من، والسعر النهائي يعتمد على المتطلبات.",
+
+      basicTitle:"Starter",
+      basic1:"صفحة هبوط احترافية",
+      basic2:"متجاوبة مع الهاتف",
+      basic3:"زر WhatsApp",
+      basic4:"SEO أساسي",
+      basic5:"قسم اتصال",
+
+      businessTitle:"Business",
+      business1:"موقع أعمال متعدد الأقسام",
+      business2:"متجاوب مع الهاتف",
+      business3:"دمج WhatsApp",
+      business4:"الخدمات والأعمال",
+      business5:"SEO أساسي",
+      business6:"نموذج اتصال",
+
+      customTitle:"Custom",
+      customPrice:"تحدث معنا",
+      custom1:"مواقع المطاعم",
+      custom2:"مواقع الفنادق",
+      custom3:"المتاجر الإلكترونية",
+      custom4:"مواقع الشركات",
+      custom5:"ميزات مخصصة",
+
+      choosePackage:"اختر الباقة",
+      getQuote:"اطلب عرض سعر",
+
+      contactTitle:"ابدأ مشروعك",
+
+      contactText:
+        "أرسل تفاصيل مشروعك وسيتم تجهيز رسالة WhatsApp.",
+
+      contactInfoTitle:"معلومات الاتصال",
+
+      locationLabel:"المناطق المستهدفة",
+      languagesLabel:"اللغات",
+      directWhatsApp:"فتح WhatsApp",
+
+      formName:"اسمك *",
+      formBusiness:"اسم النشاط *",
+      formPhone:"الهاتف / WhatsApp *",
+      formEmail:"البريد الإلكتروني",
+      formService:"الخدمة المطلوبة *",
+      formType:"نوع النشاط *",
+      formBudget:"الميزانية",
+      formLanguage:"اللغة المفضلة",
+      formDetails:"تفاصيل المشروع *",
+      sendWhatsApp:"💬 إرسال التفاصيل إلى WhatsApp",
+
+      ctaTitle:"هل أنت جاهز لإنشاء موقعك؟",
+      ctaText:"أرسل تفاصيل نشاطك عبر WhatsApp لنتحدث عن مشروعك.",
+      ctaButton:"ابدأ محادثة WhatsApp",
+
+      footerText:"مواقع احترافية وحلول رقمية للشركات.",
+      footerServices:"الخدمات",
+      footerContact:"الاتصال",
+      rights:"جميع الحقوق محفوظة."
+    },
+
+
+    ps: {
+
+      topText:"د کاروبارونو لپاره مسلکي ډیجیټل حلونه",
+
+      navServices:"خدمتونه",
+      navWork:"زموږ کار",
+      navAbout:"زموږ په اړه",
+      navPricing:"بیې",
+      navContact:"اړیکه",
+
+      badge:"پاکستان • سعودي عربستان • متحده عربي امارات",
+
+      heroTitle:"خپل آنلاین حضور پیاوړی کړئ.",
+
+      heroText:
+        "د رستورانتونو، هوټلونو، شرکتونو، سیلونونو او آنلاین پلورنځیو لپاره مسلکي او موبایل فرېنډلي ویب سایټونه.",
+
+      startWhatsApp:"په WhatsApp کې پیل کړئ",
+      viewWork:"زموږ کار وګورئ",
+
+      whyTitle:"ستاسو کاروبار ولې ویب سایټ ته اړتیا لري؟",
+
+      why1:"پېرودونکي کولی شي ستاسو کاروبار آنلاین پیدا کړي.",
+      why2:"تاسو خپل خدمات او محصولات واضح ښودلی شئ.",
+      why3:"پېرودونکي مستقیم په WhatsApp اړیکه نیولی شي.",
+      why4:"ویب سایټ په موبایل، ټابلیټ او کمپیوټر کې برابرېږي.",
+
+      askNow:"په WhatsApp پوښتنه وکړئ",
+
+      servicesTitle:"زموږ خدمتونه",
+      servicesText:"له ډیزاین څخه تر لانچ او اپډېټ پورې بشپړ ویب حلونه.",
+
+      s1Title:"Business Website",
+      s1Text:"ستاسو د شرکت یا کاروبار لپاره مسلکي ویب سایټ.",
+      s1a:"Home، About او Services پاڼې",
+      s1b:"Contact او WhatsApp بټنونه",
+      s1c:"Mobile responsive design",
+      s1d:"Basic SEO",
+
+      s2Title:"Landing Page",
+      s2Text:"د محصول، خدمت یا campaign لپاره ځانګړې پاڼه.",
+      s2a:"قوي headline او CTA",
+      s2b:"د خدمت یا محصول معلومات",
+      s2c:"WhatsApp button",
+      s2d:"Mobile layout",
+
+      s3Title:"Restaurant Website",
+      s3Text:"خپل menu، location او contact معلومات آنلاین ښکاره کړئ.",
+      s3a:"Digital menu",
+      s3b:"Food categories",
+      s3c:"Location/contact section",
+      s3d:"WhatsApp order/inquiry",
+
+      s4Title:"Hotel Website",
+      s4Text:"Rooms، facilities، prices او booking معلومات ښکاره کړئ.",
+      s4a:"Room showcase",
+      s4b:"Facilities section",
+      s4c:"Booking/inquiry form",
+      s4d:"WhatsApp reservation",
+
+      s5Title:"Online Store",
+      s5Text:"د آنلاین خرڅلاو لپاره product-focused ویب سایټ.",
+      s5a:"Product cards",
+      s5b:"Categories او prices",
+      s5c:"Order/inquiry flow",
+      s5d:"WhatsApp orders",
+
+      s6Title:"Salon Website",
+      s6Text:"د salon خدمات، packages او contact معلومات.",
+      s6a:"Services او packages",
+      s6b:"Gallery",
+      s6c:"Appointment inquiry",
+      s6d:"WhatsApp booking",
+
+      s7Title:"Corporate Website",
+      s7Text:"د شرکتونو او ادارو لپاره مسلکي آنلاین حضور.",
+      s7a:"Company profile",
+      s7b:"Services او projects",
+      s7c:"Company information",
+      s7d:"Professional contact page",
+
+      s8Title:"WhatsApp Integration",
+      s8Text:"د ویب سایټ visitors مستقیم WhatsApp ته وصل کړئ.",
+      s8a:"Direct WhatsApp buttons",
+      s8b:"Pre-filled messages",
+      s8c:"Service-specific inquiries",
+      s8d:"Floating WhatsApp button",
+
+      s9Title:"Mobile-First Design",
+      s9Text:"ویب سایټ د مختلفو screen sizes سره په اتومات ډول برابرېږي.",
+      s9a:"Mobile phones",
+      s9b:"Tablets",
+      s9c:"Laptops",
+      s9d:"Desktop screens",
+
+      s10Title:"Basic SEO",
+      s10Text:"د search visibility لپاره basic SEO setup.",
+      s10a:"SEO title",
+      s10b:"Meta description",
+      s10c:"Mobile-friendly structure",
+      s10d:"Clean page structure",
+
+      s11Title:"Speed Optimization",
+      s11Text:"د ویب سایټ د ښه performance لپاره جوړښت اصلاح کول.",
+      s11a:"Lightweight code",
+      s11b:"Responsive layout",
+      s11c:"Image optimization guidance",
+      s11d:"Performance-focused design",
+
+      s12Title:"Maintenance & Updates",
+      s12Text:"د لانچ وروسته د ویب سایټ معلومات تازه کول.",
+      s12a:"Text updates",
+      s12b:"Price/service updates",
+      s12c:"New sections",
+      s12d:"Design improvements",
+
+      typesTitle:"د مختلفو کاروبارونو لپاره ویب سایټونه",
+      typesText:"د خپل کاروبار ډول انتخاب کړئ.",
+
+      typeRestaurant:"رستورانت",
+      typeHotel:"هوټل",
+      typeCompany:"شرکت",
+      typeStore:"آنلاین دوکان",
+      typeSalon:"سیلون",
+
+      workTitle:"زموږ کار او Demos",
+      workText:"د مختلفو کاروبارونو لپاره د ویب سایټ مثالونه.",
+
+      p1Title:"Restaurant Demo",
+      p1Text:"د menu او contact section سره modern restaurant layout.",
+
+      p2Title:"Hotel Website",
+      p2Text:"د room، facilities، pricing او booking concept.",
+
+      p3Title:"Company Website",
+      p3Text:"د شرکت professional profile او services layout.",
+
+      p4Title:"Online Store",
+      p4Text:"Products، categories او WhatsApp order concept.",
+
+      p5Title:"Salon Website",
+      p5Text:"Services، packages، gallery او appointment concept.",
+
+      p6Title:"Mobile Business Site",
+      p6Text:"د موبایل visitors لپاره responsive business page.",
+
+      viewDemo:"Demo وګورئ",
+      requestDemo:"Demo وغواړئ",
+
+      aboutTitle:"د Zamran Web Development په اړه",
+
+      aboutText:
+        "Zamran Web Development د کاروبارونو لپاره ساده، مسلکي او mobile-friendly ویب سایټونه جوړوي.",
+
+      aboutText2:
+        "موخه دا ده چې پېرودونکي ستاسو کاروبار، خدمات او د اړیکې لارې په اسانه پیدا کړي.",
+
+      talkToUs:"له موږ سره اړیکه",
+
+      focusTitle:"زموږ تمرکز",
+
+      focus1:"Mobile-first websites",
+      focus2:"WhatsApp communication",
+      focus3:"واضح کاروباري معلومات",
+      focus4:"English، Urdu، Arabic او Pashto support",
+      focus5:"پاکستان، سعودي عربستان او UAE کاروبارونه",
+
+      processTitle:"څنګه کار کوو؟",
+      processText:"ستاسو له idea څخه تر ویب سایټ پورې ساده process.",
+
+      step1Title:"Details راولېږئ",
+      step1Text:"د خپل کاروبار په اړه معلومات راکړئ.",
+
+      step2Title:"Design انتخاب کړئ",
+      step2Text:"Style او sections انتخاب کړئ.",
+
+      step3Title:"Build",
+      step3Text:"موږ ویب سایټ جوړوو.",
+
+      step4Title:"Review",
+      step4Text:"تاسو معلومات ګورئ.",
+
+      step5Title:"Launch",
+      step5Text:"ویب سایټ publish کېږي.",
+
+      pricingTitle:"Pricing Packages",
+      pricingText:"Starting prices؛ وروستۍ بیه د project پر requirements پورې اړه لري.",
+
+      basicTitle:"Starter",
+      basic1:"Professional landing page",
+      basic2:"Mobile responsive",
+      basic3:"WhatsApp button",
+      basic4:"Basic SEO",
+      basic5:"Contact section",
+
+      businessTitle:"Business",
+      business1:"Multi-section business website",
+      business2:"Mobile responsive",
+      business3:"WhatsApp integration",
+      business4:"Services/portfolio sections",
+      business5:"Basic SEO",
+      business6:"Contact form",
+
+      customTitle:"Custom",
+      customPrice:"خبرې وکړو",
+      custom1:"Restaurant websites",
+      custom2:"Hotel websites",
+      custom3:"Online stores",
+      custom4:"Corporate websites",
+      custom5:"Custom features",
+
+      choosePackage:"Package انتخاب کړئ",
+      getQuote:"Quote واخلئ",
+
+      contactTitle:"خپل Project پیل کړئ",
+
+      contactText:
+        "د خپل project معلومات راولېږئ؛ form به WhatsApp message جوړ کړي.",
+
+      contactInfoTitle:"Contact Information",
+
+      locationLabel:"Target Regions",
+      languagesLabel:"Languages",
+      directWhatsApp:"WhatsApp خلاص کړئ",
+
+      formName:"ستاسو نوم *",
+      formBusiness:"Business Name *",
+      formPhone:"Phone / WhatsApp *",
+      formEmail:"Email",
+      formService:"Required Service *",
+      formType:"Business Type *",
+      formBudget:"Budget",
+      formLanguage:"Preferred Language",
+      formDetails:"Project Details *",
+      sendWhatsApp:"💬 Project Details WhatsApp ته ولېږئ",
+
+      ctaTitle:"د ویب سایټ جوړولو لپاره تیار یاست؟",
+      ctaText:"خپل د کاروبار معلومات په WhatsApp کې راولېږئ.",
+      ctaButton:"WhatsApp Chat پیل کړئ",
+
+      footerText:"د کاروبارونو لپاره مسلکي ویب سایټونه او ډیجیټل حلونه.",
+      footerServices:"Services",
+      footerContact:"Contact",
+      rights:"ټول حقوق خوندي دي."
+    }
+
+  };
+
+
+  /* =========================
+     LANGUAGE FUNCTION
+     ========================= */
+
+  function changeLanguage(language) {
+
+    const data =
+      translations[language];
+
+    if (!data) return;
+
+    document
+      .querySelectorAll("[data-i18n]")
+      .forEach(function(element) {
+
+        const key =
+          element.getAttribute("data-i18n");
+
+        if (data[key]) {
+          element.textContent = data[key];
+        }
+
+      });
+
+
+    document.documentElement.lang =
+      language;
+
+
+    if (
+      language === "ur" ||
+      language === "ar" ||
+      language === "ps"
+    ) {
+
+      document.documentElement.dir =
+        "rtl";
+
+    } else {
+
+      document.documentElement.dir =
+        "ltr";
+
+    }
+
+
+    localStorage.setItem(
+      "zamranLanguage",
+      language
+    );
+
+  }
+
+
+  /* =========================
+     LOAD SAVED LANGUAGE
+     ========================= */
+
+  const savedLanguage =
+    localStorage.getItem("zamranLanguage");
+
+  if (savedLanguage) {
+
+    document.getElementById(
+      "languageSelect"
+    ).value = savedLanguage;
+
+    changeLanguage(savedLanguage);
+
+  }
+
+</script>
+
+</body>
+</html>
